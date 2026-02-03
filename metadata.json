@@ -1,0 +1,7 @@
+{
+  "name": "Fya Robes",
+  "description": "O experiență elegantă pentru închirierea și cumpărarea de rochii de seară, cu o cabină de probă virtuală bazată pe AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
