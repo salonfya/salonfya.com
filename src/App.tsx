@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DRESSES } from './constants';
-import { Dress, DressType, WardrobeItem } from './types';
+import { Dress, DressType, WardrobeItem, Collection } from './types';
 
 // UI Components
 import Button from './components/ui/Button';
@@ -20,14 +20,9 @@ import IntroAnimation from './components/features/IntroAnimation';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
-// Section Components
-import Hero from './components/sections/Hero';
-import CollectionGrid from './components/sections/CollectionGrid';
-import AtelierSection from './components/sections/AtelierSection';
-import InnovationSection from './components/sections/InnovationSection';
-import WhereToBuySection from './components/sections/WhereToBuySection';
-import PartnerSection from './components/sections/PartnerSection';
-import HistorySection from './components/sections/HistorySection';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import ImperialCollection from './pages/ImperialCollection';
+import AnnaCollection from './pages/AnnaCollection';
 
 export default function App() {
   const [selectedDress, setSelectedDress] = useState<Dress | null>(null);
@@ -76,25 +71,31 @@ export default function App() {
     setTimeout(() => { if (!modalType) setSelectedDress(null); }, 500);
   };
 
-  // All dresses are Imperial now
-  const displayedDresses = DRESSES;
+  // Extract collections
+  const imperialDresses = DRESSES.filter(d => d.collection === Collection.IMPERIAL);
+  const annaDresses = DRESSES.filter(d => d.collection === Collection.ANNA);
 
   const isInWardrobe = (id: string) => wardrobe.some(item => item.dressId === id);
 
   const [bgColor, setBgColor] = useState('#FAFAFA');
 
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
+      // Only apply dark background effect on Imperial Collection
+      if (location.pathname !== '/' && location.pathname !== '/imperial') {
+        setBgColor('#FAFAFA');
+        return;
+      }
+
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const totalHeight = document.documentElement.scrollHeight - windowHeight;
       const scrollProgress = scrollY / totalHeight;
 
-      // Interpolate between light and dark
-      // We want to turn dark as we approach HistorySection (roughly 60% down)
       if (scrollProgress > 0.6) {
-        const factor = Math.min((scrollProgress - 0.6) / 0.2, 1); // transition over 20% scroll
-        // From #FAFAFA to #0A0A0A (not exactly dark, but deep)
+        const factor = Math.min((scrollProgress - 0.6) / 0.2, 1);
         const startRGB = { r: 250, g: 250, b: 250 };
         const endRGB = { r: 10, g: 10, b: 10 };
 
@@ -108,8 +109,12 @@ export default function App() {
       }
     };
     window.addEventListener('scroll', handleScroll);
+
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <>
@@ -164,22 +169,12 @@ export default function App() {
         {/* Navigation */}
         <Navbar onOpenWardrobe={() => setModalType('wardrobe')} wardrobeCount={wardrobe.length} />
 
-        <main>
-          <Hero />
+        <Routes>
+          <Route path="/" element={<ImperialCollection dresses={imperialDresses} onOpenDetails={openDetails} />} />
+          <Route path="/imperial" element={<ImperialCollection dresses={imperialDresses} onOpenDetails={openDetails} />} />
+          <Route path="/anna" element={<AnnaCollection dresses={annaDresses} onOpenDetails={openDetails} />} />
+        </Routes>
 
-
-
-          <CollectionGrid
-            dresses={displayedDresses}
-            onOpenDetails={openDetails}
-          />
-        </main>
-
-        <AtelierSection />
-        <InnovationSection />
-        <HistorySection />
-        <WhereToBuySection />
-        <PartnerSection />
         <Footer />
 
         {/* Image Zoom Modal */}
@@ -211,17 +206,17 @@ export default function App() {
                       >
                         <img
                           src={img}
-                          className={`w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 vintage-pastel ${selectedDress.id.includes('alma') ? 'logo-mask' : ''}`}
+                          className={`w-full h-full object-contain object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel ${selectedDress.id.includes('alma') ? 'logo-mask' : ''}`}
                           alt={`${selectedDress.name} view ${i + 1}`}
                           style={{
-                            imageRendering: 'high-quality'
+                            imageRendering: 'auto'
                           }}
                         />
                       </div>
                     ))
                   ) : (
                     <div className="col-span-2 aspect-[3/4] cursor-zoom-in group overflow-hidden" onClick={() => setZoomImage(selectedDress.imageUrl)}>
-                      <img src={selectedDress.imageUrl} className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105 vintage-pastel" alt={selectedDress.name} />
+                      <img src={selectedDress.imageUrl} className="w-full h-full object-contain bg-white object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel" alt={selectedDress.name} />
                     </div>
                   )}
                 </div>
@@ -246,16 +241,16 @@ export default function App() {
                   {selectedDress.sketches && selectedDress.sketches.length > 0 && (
                     <div className="mt-12">
                       <h3 className="font-serif text-2xl text-[#212121] mb-6 border-b border-[#212121]/10 pb-2">Schițe de Design</h3>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {selectedDress.sketches.map((img, i) => (
                           <div
                             key={i}
-                            className="aspect-[3/4] cursor-zoom-in group overflow-hidden bg-white border border-[#212121]/5"
+                            className="w-full aspect-[2/3] md:aspect-auto md:h-[60vh] cursor-zoom-in group overflow-hidden bg-white border border-[#212121]/5"
                             onClick={() => setZoomImage(img)}
                           >
                             <img
                               src={img}
-                              className="w-full h-full object-contain p-2 mix-blend-multiply transition-transform duration-[2s] group-hover:scale-105"
+                              className="w-full h-full object-contain object-center p-2 transition-transform duration-[2s] group-hover:scale-105"
                               alt={`${selectedDress.name} sketch ${i + 1}`}
                             />
                           </div>

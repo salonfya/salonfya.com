@@ -47,8 +47,8 @@ const WardrobeModal = ({
 
                                 return (
                                     <div key={item.dressId} className="flex flex-col md:flex-row gap-8 pb-12 border-b border-[#F3F3F3]">
-                                        <div className="w-full md:w-48 aspect-[3/4] bg-[#F3F3F3]">
-                                            <img src={dress.imageUrl} alt={dress.name} className="w-full h-full object-cover vintage-pastel" />
+                                        <div className="w-full md:w-48 aspect-[3/4] bg-white">
+                                            <img src={dress.imageUrl} alt={dress.name} className="w-full h-full object-contain object-top vintage-pastel" />
                                         </div>
 
                                         <div className="flex-1 space-y-6">

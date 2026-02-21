@@ -57,8 +57,8 @@ const AppointmentModal = ({ dress, isOpen, onClose, location }: { dress: Dress, 
                     </div>
                 </div>
 
-                <div className="hidden md:block md:col-span-7 h-full min-h-[500px] bg-[#F3F3F3] relative overflow-hidden">
-                    <img src={dress.imageUrl} className="absolute inset-0 w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-[2s] vintage-pastel" alt="Preview" />
+                <div className="hidden md:block md:col-span-7 h-full min-h-[500px] bg-white relative overflow-hidden">
+                    <img src={dress.imageUrl} className="absolute inset-0 w-full h-full object-contain object-top opacity-90 hover:scale-105 transition-transform duration-[2s] vintage-pastel" alt="Preview" />
                 </div>
             </div>
         </Modal>

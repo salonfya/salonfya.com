@@ -9,11 +9,11 @@ const ProductCard: React.FC<{ dress: Dress, onClick: () => void, index: number }
                 onClick={onClick}
                 className="group cursor-pointer flex flex-col gap-6"
             >
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#F3F3F3]">
+                <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ backgroundColor: 'inherit' }}>
                     <img
                         src={dress.imageUrl}
                         alt={dress.name}
-                        className={`w-full h-full object-cover transition-all duration-[1s] ease-out group-hover:scale-105 group-hover:opacity-90 vintage-pastel ${dress.id.includes('alma') ? 'logo-mask' : ''}`}
+                        className={`w-full h-full object-cover object-top transition-all duration-[1s] ease-out group-hover:scale-105 group-hover:opacity-90 vintage-pastel ${dress.id.includes('alma') ? 'logo-mask' : ''}`}
                     />
                     {/* Minimal Overlay */}
                     <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-500"></div>

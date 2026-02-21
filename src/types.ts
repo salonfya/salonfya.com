@@ -41,5 +41,6 @@ export interface WardrobeItem {
 }
 
 export enum Collection {
-  IMPERIAL = 'Imperial'
+  IMPERIAL = 'Imperial',
+  ANNA = 'Anna'
 }

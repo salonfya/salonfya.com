@@ -4,10 +4,18 @@ import FadeInSection from '../ui/FadeInSection';
 import ProductCard from './ProductCard';
 import { Dress } from '../../types';
 
-const CollectionGrid = ({ dresses, onOpenDetails }: { dresses: Dress[], onOpenDetails: (dress: Dress) => void }) => {
+interface CollectionGridProps {
+    dresses: Dress[];
+    onOpenDetails: (dress: Dress) => void;
+    title?: string;
+    subtitle?: string;
+    bgColor?: string;
+}
+
+const CollectionGrid = ({ dresses, onOpenDetails, title, subtitle, bgColor = '#FAFAFA' }: CollectionGridProps) => {
     return (
-        <div id="colectii" className="py-[120px] px-6 md:px-12 max-w-[1800px] mx-auto bg-[#FAFAFA]">
-            <SectionTitle title="Colecția Imperial" subtitle="Eleganță Regală" centered />
+        <div id="colectii" className={`py-[120px] px-6 md:px-12 max-w-[1800px] mx-auto`} style={{ backgroundColor: bgColor }}>
+            {title && subtitle && <SectionTitle title={title} subtitle={subtitle} centered />}
 
             <FadeInSection>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-24">
