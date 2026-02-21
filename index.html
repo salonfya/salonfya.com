@@ -1,105 +1,27 @@
 <!DOCTYPE html>
 <html lang="ro" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fya Robes - Eleganță Naturală</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        /* Design System Colors from Dataset */
-        --color-text: #212121;
-        --color-secondary: #959595;
-        --color-bg-primary: #FAFAFA; /* Main background */
-        --color-bg-secondary: #F3F3F3; /* Card/Section background */
-        --color-accent: #605F5F;
-        --color-accent-light: #AFA79D;
-        --color-border: #E4E1DE;
-        
-        /* Font Settings */
-        --font-heading: 'Cormorant Garamond', serif;
-        --font-body: 'Lato', sans-serif;
-      }
 
-      body {
-        font-family: var(--font-body);
-        background-color: var(--color-bg-primary);
-        color: var(--color-text);
-        -webkit-font-smoothing: antialiased;
-        margin: 0;
-      }
-
-      /* Responsive Typography */
-      h1, .hero-title {
-        font-family: var(--font-heading);
-        line-height: 0.9;
-        font-weight: 400;
-        font-size: 35px; /* Mobile default */
-      }
-
-      @media (min-width: 768px) {
-        h1, .hero-title { font-size: 50px; }
-      }
-      @media (min-width: 1024px) {
-        h1, .hero-title { font-size: 80px; }
-      }
-      @media (min-width: 1440px) {
-        h1, .hero-title { font-size: 95px; }
-      }
-
-      h2, h3, h4, h5 {
-        font-family: var(--font-heading);
-      }
-
-      .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-      }
-      .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-      }
-      
-      ::selection {
-        background: var(--color-text);
-        color: #ffffff;
-      }
-      
-      /* Smooth fade in animation keyframes */
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeInUp {
-        animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      }
-
-      /* Utility to hide elements before scroll reveal */
-      .opacity-0-forced {
-        opacity: 0;
-      }
-
-      /* Vintage Pastel Filter */
-      .vintage-pastel {
-        filter: sepia(0.2) contrast(0.9) brightness(1.1) saturate(0.85);
-      }
-    </style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fya Robes - Eleganță Naturală</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/src/index.css">
   <script type="importmap">
-{
-  "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4",
+        "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
+      }
+    }
+    </script>
 </head>
-  <body>
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/index.tsx"></script>
 </body>
+
 </html>

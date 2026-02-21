@@ -8,10 +8,13 @@ export interface Dress {
   id: string;
   name: string;
   description: string;
-  price?: number; // Purchase price
-  rentPrice?: number; // Rental price
+  price?: number;
+  rentPrice?: number;
   type: DressType;
   imageUrl: string;
+  images?: string[]; // Optional additional images
+  sketches?: string[]; // Optional design sketches
+  currency?: string; // Optional currency (default: €)
   sizes: string[];
   colors: string[];
   collection?: Collection;
@@ -33,15 +36,10 @@ export interface Appointment {
 export interface WardrobeItem {
   dressId: string;
   notes: string;
-  preferredStyle: string; // e.g., 'Boho', 'Glam', 'Classic'
+  preferredStyle: string;
   addedAt: Date;
 }
 
 export enum Collection {
-  JARDIN_DE_LUMIERE = 'Jardin de Lumière',
-  ATELIER_OF_DREAMS = 'The Atelier of Dreams',
-  THE_NYMPH = 'The Nymph',
-  THE_NEW_LOOK = 'The New Look',
-  FEMINITY = 'Feminity',
-  CARMEN = 'Carmen'
+  IMPERIAL = 'Imperial'
 }
