@@ -6,6 +6,7 @@ import { Dress, DressType, WardrobeItem, Collection } from './types';
 import Button from './components/ui/Button';
 import Tag from './components/ui/Tag';
 import Modal from './components/ui/Modal';
+import CustomCursor from './components/ui/CustomCursor';
 
 // Feature Components
 import WardrobeModal from './components/features/WardrobeModal';
@@ -19,19 +20,32 @@ import IntroAnimation from './components/features/IntroAnimation';
 // Layout Components
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import FloatingBar from './components/ui/FloatingBar';
+import ScrollProgress from './components/ui/ScrollProgress';
+import PageTransition from './components/layout/PageTransition';
+import Preloader from './components/layout/Preloader';
 
 import { Routes, Route, useLocation } from 'react-router-dom';
+import Homepage from './pages/Homepage';
 import ImperialCollection from './pages/ImperialCollection';
 import AnnaCollection from './pages/AnnaCollection';
+import MayraCollection from './pages/MayraCollection';
+import BeverlyCollection from './pages/BeverlyCollection';
+import EvoraCollection from './pages/EvoraCollection';
+import EliseCollection from './pages/EliseCollection';
+import DespreNoi from './pages/DespreNoi';
 
 export default function App() {
   const [selectedDress, setSelectedDress] = useState<Dress | null>(null);
   const [modalType, setModalType] = useState<'details' | 'tryon' | 'video' | 'appointment' | 'wardrobe' | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
 
   const [wardrobe, setWardrobe] = useState<WardrobeItem[]>([]);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
 
   const [introFinished, setIntroFinished] = useState(false);
+  const [isPreloading, setIsPreloading] = useState(true);
 
   // Wardrobe Logic
   const toggleWardrobe = (dress: Dress) => {
@@ -74,6 +88,10 @@ export default function App() {
   // Extract collections
   const imperialDresses = DRESSES.filter(d => d.collection === Collection.IMPERIAL);
   const annaDresses = DRESSES.filter(d => d.collection === Collection.ANNA);
+  const mayraDresses = DRESSES.filter(d => d.collection === Collection.MAYRA);
+  const beverlyDresses = DRESSES.filter(d => d.collection === Collection.BEVERLY);
+  const evoraDresses = DRESSES.filter(d => d.collection === Collection.EVORA);
+  const eliseDresses = DRESSES.filter(d => d.collection === Collection.ELISE);
 
   const isInWardrobe = (id: string) => wardrobe.some(item => item.dressId === id);
 
@@ -83,8 +101,9 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Only apply dark background effect on Imperial Collection
-      if (location.pathname !== '/' && location.pathname !== '/imperial') {
+      // Only apply dark background effect on Homepage
+      const isHomepage = location.pathname === '/';
+      if (!isHomepage) {
         setBgColor('#FAFAFA');
         return;
       }
@@ -118,13 +137,17 @@ export default function App() {
 
   return (
     <>
-      {!introFinished && <IntroAnimation onComplete={() => setIntroFinished(true)} />}
+      <CustomCursor />
+      {isPreloading && <Preloader onComplete={() => setIsPreloading(false)} />}
 
-      <div
-        className={`min-h-screen text-[#212121] selection:bg-[#E4E1DE] font-sans transition-colors duration-[1.5s] ease-in-out ${!introFinished ? 'overflow-hidden h-screen' : ''}`}
-        style={{ backgroundColor: bgColor }}
-      >
-        <style>{`
+      {!isPreloading && !introFinished && <IntroAnimation onComplete={() => setIntroFinished(true)} />}
+
+      {!isPreloading && (
+        <div
+          className={`min-h-screen text-[#212121] selection:bg-[#E4E1DE] font-sans transition-colors duration-[1.5s] ease-in-out ${!introFinished ? 'overflow-hidden h-screen' : ''}`}
+          style={{ backgroundColor: bgColor }}
+        >
+          <style>{`
         @keyframes fadeInUp {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -166,200 +189,212 @@ export default function App() {
 
 
 
-        {/* Navigation */}
-        <Navbar onOpenWardrobe={() => setModalType('wardrobe')} wardrobeCount={wardrobe.length} />
+          {/* Navigation */}
+          <Navbar onOpenWardrobe={() => setModalType('wardrobe')} wardrobeCount={wardrobe.length} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
 
-        <Routes>
-          <Route path="/" element={<ImperialCollection dresses={imperialDresses} onOpenDetails={openDetails} />} />
-          <Route path="/imperial" element={<ImperialCollection dresses={imperialDresses} onOpenDetails={openDetails} />} />
-          <Route path="/anna" element={<AnnaCollection dresses={annaDresses} onOpenDetails={openDetails} />} />
-        </Routes>
+          <PageTransition>
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/imperial" element={<ImperialCollection dresses={imperialDresses} onOpenDetails={openDetails} />} />
+              <Route path="/anna" element={<AnnaCollection dresses={annaDresses} onOpenDetails={openDetails} />} />
+              <Route path="/mayra" element={<MayraCollection dresses={mayraDresses} onOpenDetails={openDetails} />} />
+              <Route path="/beverly" element={<BeverlyCollection dresses={beverlyDresses} onOpenDetails={openDetails} />} />
+              <Route path="/evora" element={<EvoraCollection dresses={evoraDresses} onOpenDetails={openDetails} />} />
+              <Route path="/elise" element={<EliseCollection dresses={eliseDresses} onOpenDetails={openDetails} />} />
+              <Route path="/despre-noi" element={<DespreNoi />} />
+            </Routes>
+          </PageTransition>
 
-        <Footer />
+          <Footer />
 
-        {/* Image Zoom Modal */}
-        <ImageZoomModal isOpen={!!zoomImage} onClose={() => setZoomImage(null)} imageUrl={zoomImage} />
+          {/* Lucesposa-inspired UI elements */}
+          <FloatingBar onOpenWardrobe={() => setModalType('wardrobe')} wardrobeCount={wardrobe.length} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
+          <ScrollProgress />
 
-        {/* Wardrobe Modal */}
-        <WardrobeModal
-          isOpen={modalType === 'wardrobe'}
-          onClose={closeModal}
-          wardrobe={wardrobe}
-          onUpdateItem={updateWardrobeItem}
-          onRemoveItem={removeFromWardrobe}
-          onClearAll={clearWardrobe}
-        />
+          {/* Image Zoom Modal */}
+          <ImageZoomModal isOpen={!!zoomImage} onClose={() => setZoomImage(null)} imageUrl={zoomImage} />
 
-        {/* Detail Modal */}
-        <Modal isOpen={modalType === 'details'} onClose={closeModal} title={selectedDress?.name || ''} fullScreen={true}>
-          {selectedDress && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-full">
-              {/* Image Gallery Side */}
-              <div className="lg:col-span-7 bg-[#F3F3F3] p-6 lg:p-12 overflow-y-auto">
-                <div className="grid grid-cols-2 gap-4">
-                  {selectedDress.images && selectedDress.images.length > 0 ? (
-                    selectedDress.images.map((img, i) => (
-                      <div
-                        key={i}
-                        className={`${i === 0 ? 'col-span-2' : 'col-span-1'} aspect-[3/4] cursor-zoom-in group overflow-hidden bg-white`}
-                        onClick={() => setZoomImage(img)}
-                      >
-                        <img
-                          src={img}
-                          className={`w-full h-full object-contain object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel ${selectedDress.id.includes('alma') ? 'logo-mask' : ''}`}
-                          alt={`${selectedDress.name} view ${i + 1}`}
-                          style={{
-                            imageRendering: 'auto'
-                          }}
-                        />
+          {/* Wardrobe Modal */}
+          <WardrobeModal
+            isOpen={modalType === 'wardrobe'}
+            onClose={closeModal}
+            wardrobe={wardrobe}
+            onUpdateItem={updateWardrobeItem}
+            onRemoveItem={removeFromWardrobe}
+            onClearAll={clearWardrobe}
+          />
+
+          {/* Detail Modal */}
+          <Modal isOpen={modalType === 'details'} onClose={closeModal} title={selectedDress?.name || ''} fullScreen={true}>
+            {selectedDress && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-full">
+                {/* Image Gallery Side */}
+                <div className="lg:col-span-7 bg-[#F3F3F3] p-6 lg:p-12 overflow-y-auto">
+                  <div className="grid grid-cols-2 gap-4">
+                    {selectedDress.images && selectedDress.images.length > 0 ? (
+                      selectedDress.images.map((img, i) => (
+                        <div
+                          key={i}
+                          className={`${i === 0 ? 'col-span-2' : 'col-span-1'} aspect-[3/4] cursor-zoom-in group overflow-hidden bg-white`}
+                          onClick={() => setZoomImage(img)}
+                        >
+                          <img
+                            src={img}
+                            className={`w-full h-full object-contain object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel ${selectedDress.id.includes('alma') ? 'logo-mask' : ''}`}
+                            alt={`${selectedDress.name} view ${i + 1}`}
+                            style={{
+                              imageRendering: 'auto'
+                            }}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      <div className="col-span-2 aspect-[3/4] cursor-zoom-in group overflow-hidden" onClick={() => setZoomImage(selectedDress.imageUrl)}>
+                        <img src={selectedDress.imageUrl} className="w-full h-full object-contain bg-white object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel" alt={selectedDress.name} />
                       </div>
-                    ))
-                  ) : (
-                    <div className="col-span-2 aspect-[3/4] cursor-zoom-in group overflow-hidden" onClick={() => setZoomImage(selectedDress.imageUrl)}>
-                      <img src={selectedDress.imageUrl} className="w-full h-full object-contain bg-white object-center transition-transform duration-[2s] group-hover:scale-105 vintage-pastel" alt={selectedDress.name} />
+                    )}
+                  </div>
+                </div>
+
+                {/* Details Side - Editorial Layout */}
+                <div className="lg:col-span-5 p-8 lg:p-20 xl:px-24 bg-white flex flex-col h-full overflow-y-auto relative">
+                  <div className="mb-14 mt-4 lg:mt-8">
+                    <div className="flex justify-between items-center mb-10">
+                      <Tag>{selectedDress.collection}</Tag>
+                      <span className="text-xl md:text-2xl font-serif italic text-[#605F5F]">
+                        {selectedDress.type === DressType.RENT
+                          ? `de la ${selectedDress.rentPrice} ${selectedDress.currency || '€'}`
+                          : `${selectedDress.price} ${selectedDress.currency || '€'}`}
+                      </span>
+                    </div>
+                    <h2 className="font-serif text-[3.5rem] md:text-[5rem] lg:text-[6rem] text-[#212121] leading-[0.85] mb-10 tracking-tight">{selectedDress.name}</h2>
+                    <p className="editorial-dropcap text-[#5a5a5a] text-lg leading-[2.2] font-light">
+                      {selectedDress.description}
+                    </p>
+
+                    {selectedDress.sketches && selectedDress.sketches.length > 0 && (
+                      <div className="mt-12">
+                        <h3 className="font-serif text-2xl text-[#212121] mb-6 border-b border-[#212121]/10 pb-2">Schițe de Design</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {selectedDress.sketches.map((img, i) => (
+                            <div
+                              key={i}
+                              className="w-full aspect-[2/3] md:aspect-auto md:h-[60vh] cursor-zoom-in group overflow-hidden bg-white border border-[#212121]/5"
+                              onClick={() => setZoomImage(img)}
+                            >
+                              <img
+                                src={img}
+                                className="w-full h-full object-contain object-center p-2 transition-transform duration-[2s] group-hover:scale-105"
+                                alt={`${selectedDress.name} sketch ${i + 1}`}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                        <p className="mt-4 text-xs text-[#959595] italic text-center">
+                          Conceptul original, ilustrat în faza de creație.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Technical Details Block */}
+                  {selectedDress.details && (
+                    <div className="grid grid-cols-3 gap-6 border-y border-[#F3F3F3] py-10 mb-12">
+                      <div className="space-y-2">
+                        <span className="block text-[9px] uppercase tracking-[0.3em] font-bold text-[#AFA79D]">Material</span>
+                        <span className="text-sm font-light text-[#212121] leading-relaxed">{selectedDress.details.fabric}</span>
+                      </div>
+                      <div className="space-y-2">
+                        <span className="block text-[9px] uppercase tracking-[0.3em] font-bold text-[#AFA79D]">Siluetă</span>
+                        <span className="text-sm font-light text-[#212121] leading-relaxed">{selectedDress.details.silhouette}</span>
+                      </div>
+                      <div className="space-y-2">
+                        <span className="block text-[9px] uppercase tracking-[0.3em] font-bold text-[#AFA79D]">Decolteu</span>
+                        <span className="text-sm font-light text-[#212121] leading-relaxed">{selectedDress.details.neckline}</span>
+                      </div>
                     </div>
                   )}
-                </div>
-              </div>
 
-              {/* Details Side */}
-              <div className="lg:col-span-5 p-8 lg:p-20 bg-white flex flex-col h-full overflow-y-auto">
-                <div className="mb-12">
-                  <div className="flex justify-between items-start mb-6">
-                    <Tag>{selectedDress.collection}</Tag>
-                    <span className="text-xl font-serif italic text-[#212121]">
-                      {selectedDress.type === DressType.RENT
-                        ? `de la ${selectedDress.rentPrice} ${selectedDress.currency || '€'}`
-                        : `${selectedDress.price} ${selectedDress.currency || '€'}`}
-                    </span>
-                  </div>
-                  <h2 className="font-serif text-5xl md:text-6xl text-[#212121] leading-[0.9] mb-8">{selectedDress.name}</h2>
-                  <p className="editorial-dropcap text-[#5a5a5a]">
-                    {selectedDress.description}
-                  </p>
-
-                  {selectedDress.sketches && selectedDress.sketches.length > 0 && (
-                    <div className="mt-12">
-                      <h3 className="font-serif text-2xl text-[#212121] mb-6 border-b border-[#212121]/10 pb-2">Schițe de Design</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {selectedDress.sketches.map((img, i) => (
-                          <div
-                            key={i}
-                            className="w-full aspect-[2/3] md:aspect-auto md:h-[60vh] cursor-zoom-in group overflow-hidden bg-white border border-[#212121]/5"
-                            onClick={() => setZoomImage(img)}
-                          >
-                            <img
-                              src={img}
-                              className="w-full h-full object-contain object-center p-2 transition-transform duration-[2s] group-hover:scale-105"
-                              alt={`${selectedDress.name} sketch ${i + 1}`}
-                            />
-                          </div>
-                        ))}
+                  <div className="space-y-10 pt-4 mb-16">
+                    <div className="grid grid-cols-2 gap-10">
+                      <div>
+                        <span className="block text-[9px] uppercase tracking-[0.3em] font-bold text-[#AFA79D] mb-4">Culori</span>
+                        <div className="flex gap-3 flex-wrap">
+                          {selectedDress.colors.map(c => (
+                            <span key={c} className="text-xs px-4 py-2 border border-[#F3F3F3] text-[#605F5F] tracking-wide">{c}</span>
+                          ))}
+                        </div>
                       </div>
-                      <p className="mt-4 text-xs text-[#959595] italic text-center">
-                        Conceptul original, ilustrat în faza de creație.
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Technical Details Block */}
-                {selectedDress.details && (
-                  <div className="grid grid-cols-3 gap-4 border-y border-[#E4E1DE] py-6 mb-8">
-                    <div className="space-y-1">
-                      <span className="block text-[10px] uppercase tracking-widest font-bold text-[#959595]">Material</span>
-                      <span className="text-sm font-light text-[#212121]">{selectedDress.details.fabric}</span>
-                    </div>
-                    <div className="space-y-1">
-                      <span className="block text-[10px] uppercase tracking-widest font-bold text-[#959595]">Siluetă</span>
-                      <span className="text-sm font-light text-[#212121]">{selectedDress.details.silhouette}</span>
-                    </div>
-                    <div className="space-y-1">
-                      <span className="block text-[10px] uppercase tracking-widest font-bold text-[#959595]">Decolteu</span>
-                      <span className="text-sm font-light text-[#212121]">{selectedDress.details.neckline}</span>
-                    </div>
-                  </div>
-                )}
-
-                <div className="space-y-8 pt-4 mb-12">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div>
-                      <span className="block text-[10px] uppercase tracking-widest font-bold text-[#212121] mb-2">Culori</span>
-                      <div className="flex gap-2 flex-wrap">
-                        {selectedDress.colors.map(c => (
-                          <span key={c} className="text-xs px-2 py-1 bg-[#F3F3F3] text-[#959595]">{c}</span>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <span className="block text-[10px] uppercase tracking-widest font-bold text-[#212121] mb-2">Mărimi</span>
-                      <div className="flex gap-2">
-                        {selectedDress.sizes.map(s => (
-                          <span key={s} className="w-8 h-8 flex items-center justify-center border border-[#E4E1DE] text-xs text-[#212121] hover:bg-[#212121] hover:text-white transition-colors cursor-pointer">{s}</span>
-                        ))}
+                      <div>
+                        <span className="block text-[9px] uppercase tracking-[0.3em] font-bold text-[#AFA79D] mb-4">Mărimi</span>
+                        <div className="flex gap-2 flex-wrap">
+                          {selectedDress.sizes.map(s => (
+                            <span key={s} className="w-10 h-10 flex items-center justify-center border border-[#E4E1DE] text-xs text-[#212121] hover:bg-[#212121] hover:text-white transition-colors cursor-pointer">{s}</span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-auto space-y-4">
-                  <Button onClick={() => setModalType('appointment')} variant="primary" className="w-full">
-                    Programează Vizită
-                  </Button>
-                  <Button
-                    onClick={() => selectedDress && toggleWardrobe(selectedDress)}
-                    variant="secondary"
-                    className="w-full"
-                    icon={isInWardrobe(selectedDress.id) ? "♥" : "♡"}
-                  >
-                    {isInWardrobe(selectedDress.id) ? "În Garderobă" : "Adaugă la Wishlist"}
-                  </Button>
+                  <div className="mt-auto space-y-4 pb-10">
+                    <Button onClick={() => setModalType('appointment')} variant="primary" className="w-full">
+                      Programează Vizită
+                    </Button>
+                    <Button
+                      onClick={() => selectedDress && toggleWardrobe(selectedDress)}
+                      variant="secondary"
+                      className="w-full"
+                      icon={isInWardrobe(selectedDress.id) ? "♥" : "♡"}
+                    >
+                      {isInWardrobe(selectedDress.id) ? "În Garderobă" : "Adaugă la Wishlist"}
+                    </Button>
 
-                  <div className="grid grid-cols-2 gap-4 mt-6">
-                    <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
-                      <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">✧</span>
-                      <span className="text-[10px] uppercase tracking-widest font-bold">Probă AI</span>
-                    </div>
-                    <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('video')}>
-                      <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">◉</span>
-                      <span className="text-[10px] uppercase tracking-widest font-bold">Video 360</span>
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
+                        <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">✧</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold">Probă AI</span>
+                      </div>
+                      <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('video')}>
+                        <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">◉</span>
+                        <span className="text-[10px] uppercase tracking-widest font-bold">Video 360</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-        </Modal >
+            )}
+          </Modal >
 
-        {/* Feature Modals */}
-        {
-          selectedDress && (
-            <>
-              <AppointmentModal
-                dress={selectedDress}
-                isOpen={modalType === 'appointment'}
-                onClose={() => setModalType('details')}
-                location="Oradea"
-              />
-              <TryOnModal
-                dress={selectedDress}
-                isOpen={modalType === 'tryon'}
-                onClose={() => setModalType('details')}
-              />
-              <VideoModal
-                dress={selectedDress}
-                isOpen={modalType === 'video'}
-                onClose={() => setModalType('details')}
-              />
-            </>
-          )
-        }
-        <ImageZoomModal
-          isOpen={!!zoomImage}
-          onClose={() => setZoomImage(null)}
-          imageUrl={zoomImage}
-        />
-      </div >
+          {/* Feature Modals */}
+          {
+            selectedDress && (
+              <>
+                <AppointmentModal
+                  dress={selectedDress}
+                  isOpen={modalType === 'appointment'}
+                  onClose={() => setModalType('details')}
+                  location="Oradea"
+                />
+                <TryOnModal
+                  dress={selectedDress}
+                  isOpen={modalType === 'tryon'}
+                  onClose={() => setModalType('details')}
+                />
+                <VideoModal
+                  dress={selectedDress}
+                  isOpen={modalType === 'video'}
+                  onClose={() => setModalType('details')}
+                />
+              </>
+            )
+          }
+          <ImageZoomModal
+            isOpen={!!zoomImage}
+            onClose={() => setZoomImage(null)}
+            imageUrl={zoomImage}
+          />
+        </div>
+      )}
     </>
   );
 }

@@ -35,9 +35,9 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl }: { isOpen: boolean, onClos
                 <div
                     className="w-full h-full cursor-zoom-out"
                     style={{
-                        backgroundImage: `url(${imageUrl})`,
+                        backgroundImage: `url("${imageUrl}")`,
                         backgroundPosition: `${position.x}% ${position.y}%`,
-                        backgroundSize: '250%', // 2.5x zoom
+                        backgroundSize: '200%', // Reduced from 250% to prevent pixelation
                         backgroundRepeat: 'no-repeat',
                         transition: 'background-position 0.1s ease-out'
                     }}

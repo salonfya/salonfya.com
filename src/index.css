@@ -70,7 +70,7 @@ h5 {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
 
   to {
@@ -116,7 +116,15 @@ h5 {
 }
 
 .animate-fadeInUp {
-  animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: fadeInUp 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeInUp-slow {
+  animation: fadeInUp 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ease-luxury {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .vintage-pastel {
@@ -187,5 +195,21 @@ h5 {
   .grid-editorial {
     display: flex;
     flex-direction: column;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .editorial-dropcap::first-letter {
+    font-size: 4.5rem;
+    padding-top: 0.1rem;
+    padding-right: 0.4rem;
+    line-height: 0.9;
+  }
+}
+@media (pointer: fine) {
+  body, a, button, input, select, textarea {
+    cursor: none !important;
   }
 }

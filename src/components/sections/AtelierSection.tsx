@@ -8,18 +8,18 @@ const AtelierSection = () => (
             <div className="order-2 lg:order-1 space-y-16">
                 <FadeInSection>
                     <SectionTitle title="Atelierul de Creație" subtitle="Meșteșug & Inovație" />
-                    <p className="text-[#959595] font-light leading-relaxed text-lg max-w-xl mt-8">
-                        Fiecare rochie Fya este rezultatul a sute de ore de muncă manuală, îmbinate cu precizia tehnologiei moderne.
-                        Credem în "Slow Fashion" și în piese care transcend tendințele sezoniere.
+                    <p className="text-[#959595] font-light leading-[2] text-base md:text-lg max-w-xl mt-12 editorial-dropcap">
+                        În atelierul Fya, am renunțat la grabă. Fiecare rochie este o pânză pe care o pictăm cu sute de ore de muncă manuală, îmbinând tradiția artizanală cu o precizie aproape arhitecturală.
+                        Avem o singură credință: piesele de colecție transcend tendințele sezoniere.
                     </p>
                     <div className="grid grid-cols-2 gap-12 pt-12 border-t border-[#605F5F]/30 mt-12">
                         <div>
-                            <span className="block text-5xl font-serif italic mb-3">100%</span>
-                            <span className="text-[10px] uppercase tracking-widest text-[#959595]">Mătase Naturală</span>
+                            <span className="block text-5xl md:text-6xl font-serif italic mb-3">100%</span>
+                            <span className="text-[10px] uppercase tracking-[0.25em] text-[#959595] font-bold">Mătase Pură</span>
                         </div>
                         <div>
-                            <span className="block text-5xl font-serif italic mb-3">Oradea</span>
-                            <span className="text-[10px] uppercase tracking-widest text-[#959595]">Fabricat în România</span>
+                            <span className="block text-5xl md:text-6xl font-serif italic mb-3">Oradea</span>
+                            <span className="text-[10px] uppercase tracking-[0.25em] text-[#959595] font-bold">Concept & Creație</span>
                         </div>
                     </div>
                 </FadeInSection>

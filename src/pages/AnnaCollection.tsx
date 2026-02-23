@@ -9,18 +9,31 @@ interface AnnaCollectionProps {
 
 export default function AnnaCollection({ dresses, onOpenDetails }: AnnaCollectionProps) {
     return (
-        <div className="pt-32 pb-20 bg-white">
-            <div className="text-center mb-24 max-w-3xl mx-auto animate-fadeInUp px-4 md:px-12">
-                <span className="block text-[10px] uppercase tracking-[0.3em] font-bold text-[#959595] mb-6">Atingerea Naturii</span>
-                <h1 className="font-serif text-5xl md:text-7xl text-[#212121] italic mb-6">Colecția Anna</h1>
-                <p className="text-[#5a5a5a] font-light leading-relaxed text-lg">
-                    Puritate absolută și o estetică organică. Creată pentru mireasa
-                    care visează la o eleganță atemporală, romantică și care îmbrățișează
-                    frumusețea naturală, nealterată.
-                </p>
+        <div className="bg-[#FAF8F5] min-h-screen pb-20">
+            {/* Cinematic Editorial Header */}
+            <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none" />
+                <img
+                    src="/images/ANNA/Just Anna/IMG_5889.jpg"
+                    alt="Colecția Anna"
+                    className="absolute inset-0 w-full h-full object-cover object-center animate-fadeInUp-slow"
+                />
+
+                <div className="relative z-20 text-center px-6 mt-20 animate-fadeInUp-slow" style={{ animationDelay: '0.2s' }}>
+                    <span className="block text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold text-white/80 mb-6 drop-shadow-md">Atingerea Naturii</span>
+                    <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] text-white italic mb-6 leading-[0.85] drop-shadow-lg">
+                        Colecția Anna
+                    </h1>
+                    <p className="font-light text-white/90 text-base md:text-lg leading-[2] max-w-xl mx-auto drop-shadow-md">
+                        Puritate absolută și o estetică organică. Creată pentru mireasa
+                        care visează la o eleganță atemporală.
+                    </p>
+                </div>
             </div>
 
-            <CollectionGrid dresses={dresses} onOpenDetails={onOpenDetails} bgColor="transparent" />
+            <div className="max-w-[1400px] mx-auto mt-20">
+                <CollectionGrid dresses={dresses} onOpenDetails={onOpenDetails} bgColor="transparent" />
+            </div>
         </div>
     );
 }

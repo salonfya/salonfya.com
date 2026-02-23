@@ -11,16 +11,16 @@ const WhereToBuySection = () => {
 
     return (
         <div className="py-[120px] px-6 md:px-12 max-w-[1800px] mx-auto where-to-buy">
-            <SectionTitle title="Locații" subtitle="Where to Buy" centered />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            <SectionTitle title="Descoperă Creațiile Noi" subtitle="Destinații" centered />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
                 {locations.map((loc, idx) => (
-                    <FadeInSection key={idx} delay={idx * 100}>
-                        <div className="text-center p-8 border border-[#F3F3F3] hover:border-[#212121] transition-colors duration-500">
-                            <h3 className="font-serif text-2xl italic text-[#212121] mb-4">{loc.city}</h3>
-                            <p className="text-sm font-light text-[#959595] mb-2">{loc.address}</p>
-                            <p className="text-sm font-light text-[#959595]">{loc.phone}</p>
-                            <button className="mt-6 text-[10px] uppercase tracking-[0.2em] font-bold border-b border-[#212121] pb-1 hover:text-[#959595] hover:border-[#959595] transition-all">
-                                Vezi pe Hartă
+                    <FadeInSection key={idx} delay={idx * 200}>
+                        <div className="text-center p-10 md:p-14 border border-[#F3F3F3] hover:border-[#212121] transition-colors duration-[1.5s] group bg-white">
+                            <h3 className="font-serif text-3xl md:text-3xl italic text-[#212121] mb-6 group-hover:text-[#605F5F] transition-colors duration-500">{loc.city}</h3>
+                            <p className="text-sm font-light text-[#959595] mb-2 tracking-wide">{loc.address}</p>
+                            <p className="text-sm font-light text-[#959595] tracking-wide">{loc.phone}</p>
+                            <button className="mt-8 text-[10px] uppercase tracking-[0.25em] font-bold border-b border-[#212121]/30 pb-2 text-[#212121] hover:text-[#959595] hover:border-[#959595] transition-all duration-500">
+                                Rezervă o Programare
                             </button>
                         </div>
                     </FadeInSection>

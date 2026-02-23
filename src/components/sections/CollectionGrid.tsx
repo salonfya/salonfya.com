@@ -18,7 +18,12 @@ const CollectionGrid = ({ dresses, onOpenDetails, title, subtitle, bgColor = '#F
             {title && subtitle && <SectionTitle title={title} subtitle={subtitle} centered />}
 
             <FadeInSection>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-24">
+                <div className={`grid gap-x-8 gap-y-24 ${dresses.length <= 2
+                        ? 'grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto'
+                        : dresses.length <= 3
+                            ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto'
+                            : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+                    }`}>
                     {dresses.map((dress: Dress, idx: number) => (
                         <ProductCard key={dress.id} dress={dress} onClick={() => onOpenDetails(dress)} index={idx} />
                     ))}

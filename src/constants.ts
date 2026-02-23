@@ -5,7 +5,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
   {
     id: 'imperial-alma',
     name: 'Alma',
-    description: 'Alma este acea rochie de mireasă care îmbină rafinamentul clasic cu o delicatețe modernă, rezultând o piesă diafană și feminină. Bustul este realizat pe structură de corset, oferind susținere și contur delicat siluetei, peste care se așază un strat de tulle extrem de fin. Acesta este decorat cu aplicații delicate din dantelă, dispuse armonios, iar marginile sunt cusute manual, evidențiind atenția desăvârșită pentru detalii și măiestria lucrului artizanal. Decolteul subtil și transparența controlată a tulle-ului creează un joc elegant între senzualitate și puritate. Spatele rochiei este pus în valoare de închiderea fină cu un sirag de nasturi din matase, care completează armonios designul bustului. Partea inferioară este compusă dintr-o fustă amplă și fluidă, realizată din mătase naturală în nuanță ivory, care curge lin și ușor la fiecare pas.',
+    description: 'Alma este o declarație de feminitate absolută, unde rafinamentul clasic întâlnește o delicatețe aproape onirică. Bustul, sculptat pe o structură invizibilă de corset, oferă un contur perfect, învăluit într-un strat de tulle fin ca o respirație. Aplicațiile de dantelă sunt dispuse organic, iar detaliile cusute manual vorbesc despre sute de ore de dedicație artizanală. Decolteul subtil și jocul de transparențe creează un echilibru perfect între senzualitate și poezie. Șiragul de nasturi din mătase de pe spate completează povestea, lăsând fusta amplă, din mătase naturală ivory, să curgă fluid și maiestuos la fiecare pas.',
     rentPrice: 5400,
     price: 5400,
     type: DressType.BUY,
@@ -21,7 +21,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
   {
     id: 'imperial-aurelia',
     name: 'Aurelia',
-    description: 'Aurelia este o rochie de mireasă realizată din mătase naturală în nuanță Ivory, cu o cădere fluidă și greutate fină, care urmărește linia corpului fără a o constrânge. Silueta este fit & flare, cu talia subtil marcată și fusta ușor evazată, prelungită într-o trenă delicată, ce adaugă mișcare și noblețe mersului. Bustul este construit pe o bază structurată, cu decolteu în V, atât în față, cât și în spate, accentuat de o inserție discretă de tul. Aplicațiile de dantelă fină, brodată manual, se așază organic pe bust și umeri, coborând ca niște ramuri florale spre talie, unde se estompează treptat în textura mătăsii. Mânecile lungi, realizate din tul transparent, sunt decorate cu aceleași aplicații de dantelă, creând un contrast subtil între transparență și opacitate. Spatele impresionează prin șirul de nasturi fini îmbrăcați, care urmează linia coloanei și accentuează eleganța construcției. Interiorul este finisat impecabil, cu cusături curate și căptușeală din materiale naturale, gândite pentru confort și respirabilitate pe durata întregii zile.',
+    description: 'Aurelia este definită de fluiditatea absolută a mătăsii naturale Ivory, o țesătură prețioasă care îmbrățișează silueta fără a o constrânge. Croită într-o linie fit & flare sofisticată, rochia se deschide grațios într-o trenă delicată ce transformă fiecare mișcare într-un dans. Decolteul în V profund este flancat de aplicații de dantelă fină, brodată manual, care coboară ca niște ramuri florale spre talie. Mânecile iluzie adaugă un contrast curajos între transparență și broderie, în timp ce șirul prelung de nasturi de pe spate onorează tradiția pură haute couture.',
     rentPrice: 3600,
     price: 4800,
     type: DressType.BUY,
@@ -37,7 +37,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
   {
     id: 'imperial-argente',
     name: 'Argente',
-    description: 'Rochia aceasta pare desprinsă dintr-un vis parizian, purtat pe străzi pavate de lumină caldă și emoție. Realizată din tafta albă cu irizații fine argintii, țesătura captează lumina într-un mod delicat, aproape diafan, creând un joc subtil de reflexii la fiecare mișcare. Materialul are acea structură specifică taftalei – fermă, dar fluidă – care îi permite să păstreze o linie impecabilă și să ofere volum fustei ample. Croiala este una clasică, cu talia bine marcată și o fustă amplă, în linie A, care cade generos până la podea, formând un cerc amplu în mers. Bustul este curat, minimalist, cu un decolteu rotund în față, ce echilibrează armonios dramatismul spatelui. În contrast, pe spate, rochia dezvăluie un decolteu adânc în V, elegant și feminin, care alungește silueta și adaugă un accent senzual discret. Mânecile lungi, perfect integrate în linia rochiei, sunt ornate de sus până jos cu năsturei albi din satin. Este o rochie care îmbină romantismul pur cu rigoarea croitoriei clasice – un echilibru între poezie și arhitectură textilă.',
+    description: 'Argente pare desprinsă dintr-un vis parizian, purtat pe străzi pavate cu lumină caldă. Realizată din tafta albă imaculată cu irizații fine argintii, țesătura captează lumina într-un mod aproape diafan. Structura fermă a taftalei susține o fustă amplă, în linie A, formând un volum arhitectural spectaculos în mers. Contrastul dintre minimalismul curat al decolteului frontal și dramatismul seducător al spatelui decupat adânc în V este hipnotic. Cu mâneci lungi ornate cu un șirag nesfârșit de nasturi fini, Argente reprezintă echilibrul perfect între poezia vizuală și rigoarea croitoriei clasice.',
     rentPrice: 3900,
     price: 5400,
     type: DressType.BUY,
@@ -82,7 +82,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     details: { fabric: 'Mătase naturală, dantelă', silhouette: 'Sirenă', neckline: 'Corset Illusion' }
   },
   {
-    id: 'imperial-elise',
+    id: 'elise-elise',
     name: 'Elise',
     description: 'Elise este o rochie de mireasă realizată din tafta perlată, cu o strălucire delicată și structură impecabilă, ce pune în valoare rafinamentul unei siluete clasice. Corsajul are un decolteu amplu, tip bardot, cu linii suprapuse ce conturează elegant zona umerilor și a bustului. Talia este bine definită, iar fusta amplă, cu volum bogat și trenă fluidă, cade armonios în pliuri ample, oferind un aer regal și sofisticat. Spatele rochiei este accentuat de un decolteu în V și de o fundă decorativă din același material, cu panglici lungi ce se prelungesc grațios peste trenă, adăugând un detaliu romantic și spectaculos. Aceasta conferă rochiei un aspect luxos, păstrând în același timp o eleganță atemporală. O rochie ideală pentru mireasa care își dorește un look clasic, nobil și memorabil.',
     rentPrice: 3900,
@@ -94,7 +94,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['50'],
     colors: ['Ivory'],
-    collection: Collection.IMPERIAL,
+    collection: Collection.ELISE,
     details: { fabric: 'Tafta perlată', silhouette: 'Prințesă / A-Line', neckline: 'Bardot / Suprapus' }
   },
   {
@@ -178,7 +178,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     details: { fabric: 'Tafta albă', silhouette: 'A-Line / Amplă', neckline: 'V-Neck profund' }
   },
   {
-    id: 'imperial-evora',
+    id: 'evora-evora',
     name: 'Evora',
     description: 'Pășește în propria ta poveste cu această rochie de mireasă, care este o creație diafană, o simfonie a texturilor fine și a strălucirii discrete. Concepută pentru mireasa care visează la o eleganță atemporală, dar care își dorește să strălucească la propriu, această rochie îmbină romantismul clasic al mânecilor lungi diafane cu senzualitatea modernă a unui corset bijuterie. Structura de bază este tip A-line, oferind volum fluid din multiple straturi de tul fin, iar trena fluidă adaugă dramatism regal. Corsetul are decolteu amplu în V și este bogat ornamentat cu broderii tridimensionale, perle, cristale și paiete aplicate ce curg în cascadă spre talie, oferind un aer de lux și aristocrație.',
     rentPrice: 4400,
@@ -190,7 +190,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['36', '38'],
     colors: ['Ivory / Nude subtil'],
-    collection: Collection.IMPERIAL,
+    collection: Collection.EVORA,
     details: { fabric: 'Tul fin, broderii 3D, perle și cristale', silhouette: 'Prințesă / A-Line', neckline: 'V-Neck cu aspect Illusion' }
   },
   {
@@ -200,7 +200,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     rentPrice: 3900,
     price: 5400,
     type: DressType.BUY,
-    imageUrl: '/images/ANNA/Annador/0DB5AAD1-EEE2-40B7-926B-403B31D9EEE2.PNG',
+    imageUrl: '/images/ANNA/Annador/BBACE0F9-1649-4353-93B4-A7D453D0991C.PNG',
     images: ['/images/ANNA/Annador/0DB5AAD1-EEE2-40B7-926B-403B31D9EEE2.PNG', '/images/ANNA/Annador/BBACE0F9-1649-4353-93B4-A7D453D0991C.PNG'],
     sketches: ['/images/ANNA/Annador/anna_annador_sketch.png'],
     currency: 'RON',
@@ -216,7 +216,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     rentPrice: 4300,
     price: 5400,
     type: DressType.BUY,
-    imageUrl: '/images/ANNA/Anais/79DC5387-A233-4FAF-A400-365F22270EED.PNG',
+    imageUrl: '/images/ANNA/Anais/A85332DF-BE08-4DA1-9DF5-CF48706FFDBF.PNG',
     images: ['/images/ANNA/Anais/79DC5387-A233-4FAF-A400-365F22270EED.PNG', '/images/ANNA/Anais/A85332DF-BE08-4DA1-9DF5-CF48706FFDBF.PNG', '/images/ANNA/Anais/0A1909F0-C8B1-4B7C-AA3E-2514FAA0D407.jpg'],
     currency: 'RON',
     sizes: ['36', '38', '40', '42'],
@@ -231,7 +231,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     rentPrice: 3200,
     price: 4900,
     type: DressType.BUY,
-    imageUrl: '/images/ANNA/Anaria/48777E20-17E8-4147-8162-1DFA6FC8ED37.PNG',
+    imageUrl: '/images/ANNA/Anaria/753C58D1-6014-43EF-B408-E9D5382C43EE.PNG',
     images: ['/images/ANNA/Anaria/48777E20-17E8-4147-8162-1DFA6FC8ED37.PNG', '/images/ANNA/Anaria/753C58D1-6014-43EF-B408-E9D5382C43EE.PNG', '/images/ANNA/Anaria/E110F78F-1AE3-4F76-9927-C1C38242F2B0.PNG'],
     sketches: ['/images/ANNA/Anaria/anna_anaria_sketch.png'],
     currency: 'RON',
@@ -337,7 +337,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     rentPrice: 4200,
     price: 6900,
     type: DressType.BUY,
-    imageUrl: '/images/ANNA/Anavelle/F0984693-7165-430E-A06E-8451F8492F3A.PNG',
+    imageUrl: '/images/ANNA/Anavelle/FC5646E0-8C55-4E53-B5C4-FE51E2B46449.PNG',
     images: ['/images/ANNA/Anavelle/F0984693-7165-430E-A06E-8451F8492F3A.PNG', '/images/ANNA/Anavelle/A74C3A1A-C6FF-4C80-BBF4-6E3736B9F525.PNG', '/images/ANNA/Anavelle/FC5646E0-8C55-4E53-B5C4-FE51E2B46449.PNG'],
     currency: 'RON',
     sizes: ['44', '46', '48', '50'],
@@ -374,5 +374,271 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     colors: ['Ivory / Rozé'],
     collection: Collection.ANNA,
     details: { fabric: 'Organza ușoară, broderie', silhouette: 'Prințesă', neckline: 'Inimă / Off-shoulder curbat' }
+  },
+  {
+    id: 'mayra-adania',
+    name: 'Adania',
+    description: 'Adania este un poem scris în tull fin și dantelă florale tridimensionale. Bustul în formă de inimă este un spectacol de delicatețe, brodat cu o măiestrie desăvârșită ce onorează liniile naturale ale feminității. Mânecile căzute adaugă o notă romantică, eterică, ca un suspin de primăvară. Silueta A-line se deschide amplu, îmbrăcând fiecare pas într-o aură de poveste.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Adania/IMG_5597.jpg',
+    images: [
+      '/images/MAYRA/Adania/5F1C2FC7-5BFA-4C1B-82A7-DB01945D2FD5.png',
+      '/images/MAYRA/Adania/IMG_5591.jpg',
+      '/images/MAYRA/Adania/IMG_5597.jpg',
+      '/images/MAYRA/Adania/IMG_5603.jpg',
+      '/images/MAYRA/Adania/IMG_5607.jpg',
+      '/images/MAYRA/Adania/IMG_6058.PNG'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-celina',
+    name: 'Celina',
+    description: 'Celina reprezintă grația atemporală, capturată arhitectural în straturi de tull fin ca aerul de dimineață. Bustul generos ornamentat cu flori tridimensionale pare sculptat din lumină, continuându-se fluid pe o fustă amplă ce îmbrățișează pământul. Este o rochie pentru mireasa care își dorește să fie, simultan, o prezență impunătoare și o amintire difuză, de neuitat.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Celina/IMG_5616.jpg',
+    images: [
+      '/images/MAYRA/Celina/IMG_5616.jpg',
+      '/images/MAYRA/Celina/IMG_5618.jpg',
+      '/images/MAYRA/Celina/IMG_5620.jpg',
+      '/images/MAYRA/Celina/IMG_5626.JPEG',
+      '/images/MAYRA/Celina/IMG_6063.PNG'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-desideria',
+    name: 'Desideria',
+    description: 'Desideria transformă dorința în materie palpabilă. Cu o fustă monumentală ce plutește în siajul fiecărei mișcări, această creație redefinește romantismul modern. Dantela spectaculoasă dansează pe corsajul bine definit, lăsând linia gâtului să respire sub un fin decolteu în inimă. Fiecare aplicare 3D este o declarație, iar întregul este o operă desăvârșită dedicată momentelor eterne.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Desideria/IMG_5631.jpg',
+    images: [
+      '/images/MAYRA/Desideria/IMG_5640.jpg',
+      '/images/MAYRA/Desideria/IMG_5631.jpg',
+      '/images/MAYRA/Desideria/IMG_5637.jpg',
+      '/images/MAYRA/Desideria/IMG_5638.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-elvira',
+    name: 'Elvira',
+    description: 'Elvira amintește de eleganța curților aristocratice, rescrisă pentru sufletul contemporan. Broderia opulentă, așezată pe un suport de tull irezistibil de moale, se pierde discret în fusta amplă, sugerând mister și sofisticare. Silueta sa alungită este completată de tranziții perfecte între clar și iluzie, perfectă pentru o prezență absolut memorabilă.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Elvira/IMG_5648.jpg',
+    images: [
+      '/images/MAYRA/Elvira/IMG_5648.jpg',
+      '/images/MAYRA/Elvira/09616BBB-2A47-4431-BF95-DD0C63726679.PNG',
+      '/images/MAYRA/Elvira/IMG_5651.jpg',
+      '/images/MAYRA/Elvira/IMG_5652.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-grazia',
+    name: 'Grazia',
+    description: 'Grazia este însăși fluiditatea. O cascadă de tull imaculat ce cade, se adună și se ridică lăsând în urmă o trenă spectaculoasă. Partea superioară este o rețea rafinată de broderii ce mângâie linia bustului, lăsând umerii goi să dicteze sensibilitatea întregii ținute. Este rochia unde arta întâlnește inocența pură.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Grazia/IMG_5668.jpg',
+    images: [
+      '/images/MAYRA/Grazia/IMG_5668.jpg',
+      '/images/MAYRA/Grazia/ED2F8FEC-0716-44BC-B7C6-29E39267E930.jpg',
+      '/images/MAYRA/Grazia/IMG_5669.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-isadora',
+    name: 'Isadora',
+    description: 'Isadora este croită pentru o melodie vizuală. Această creație A-line combină rigoarea tehnică a unui corset impecabil cu o nestăpânită cascadă de aplicații florale, risipite parcă de un vânt blând de mai. Este rochia ce asigură libertatea mișcării, păstrând în același timp un aer solemn, luxos și inegalabil.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Isadora/IMG_5681.jpg',
+    images: [
+      '/images/MAYRA/Isadora/IMG_5681.jpg',
+      '/images/MAYRA/Isadora/IMG_5682.jpg',
+      '/images/MAYRA/Isadora/IMG_5691.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-luminia',
+    name: 'Luminia',
+    description: 'Așa cum îi spune și numele, Luminia este țesută din lumina lunii. Un joc fascinant de reflexii ascunse între straturile de tull, completate de structuri florale 3D minuțios poziționate. Spatele este o adevărată capodoperă a iluziei, dezvăluind și ascunzând deopotrivă, pentru o apariție absolut fermecătoare.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Luminia/IMG_5697.jpg',
+    images: [
+      '/images/MAYRA/Luminia/IMG_5697.jpg',
+      '/images/MAYRA/Luminia/IMG_5698.jpg',
+      '/images/MAYRA/Luminia/IMG_5699.jpg',
+      '/images/MAYRA/Luminia/IMG_5709.jpg',
+      '/images/MAYRA/Luminia/IMG_5710.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-miracle',
+    name: 'Miracle',
+    description: 'Miracle este momentul în care magia devine vizibilă. O rochie cu volume excepționale, dar inexplicabil de ușoară. Dantelăria frontală curge neîntrerupt pe linia fustei, dând senzația de continuitate naturală. Silueta sa curajoasă este echilibrată de elementele romantice, devenind o veritabilă ținută statement.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Miracle/IMG_5714.jpg',
+    images: [
+      '/images/MAYRA/Miracle/IMG_5714.jpg',
+      '/images/MAYRA/Miracle/IMG_5715.jpg',
+      '/images/MAYRA/Miracle/IMG_5717.jpg',
+      '/images/MAYRA/Miracle/IMG_5718.jpg',
+      '/images/MAYRA/Miracle/IMG_5727.jpg',
+      '/images/MAYRA/Miracle/IMG_5729.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-roze',
+    name: 'Roze',
+    description: 'Roze poartă în firele sale promisiunea primelor iubiri. Subtilă, cu nuanțe rafinate de fildeș ce se îmbină cu transparențe diafane, rochia aduce în prim-plan broderii florale cu un farmec retro, reimaginat pentru azi. Trena lungă adaugă grație, în timp ce talia marcată asigură conturul perfect feminin.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Roze/IMG_5736.jpg',
+    images: [
+      '/images/MAYRA/Roze/IMG_5736.jpg',
+      '/images/MAYRA/Roze/IMG_5198.heic',
+      '/images/MAYRA/Roze/IMG_5735.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-snow',
+    name: 'Snow',
+    description: 'Snow este esența purității absolute, surprinsă în mătase și tull iluzie. Curată, imaculată, rochia impresionează prin simplitatea formei, animată doar de bogăția aplicațiilor fine care apar, ca fulgii de nea, fix acolo unde e nevoie de prețiozitate. O abordare modernă a clasicei albe, pentru mireasa minimalistă, dar sofisticată.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Snow/IMG_5744.jpg',
+    images: [
+      '/images/MAYRA/Snow/IMG_5744.jpg',
+      '/images/MAYRA/Snow/IMG_5743.jpg',
+      '/images/MAYRA/Snow/IMG_5748.jpg',
+      '/images/MAYRA/Snow/IMG_5753.jpg',
+      '/images/MAYRA/Snow/IMG_5757.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-tania',
+    name: 'Tania',
+    description: 'Tania este seducția ascunsă în decență. Această piesă masterclass în design integrează bretele subțiri, lăsând decolteul să devină un panou de expunere pentru o dantelă incredibil de prețioasă. Fusta cade greu, dar se mișcă lejer, creând acel efect dramatic, sculptural, apreciat pe marile reviste de modă.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Tania/IMG_5764.jpg',
+    images: [
+      '/images/MAYRA/Tania/IMG_5764.jpg',
+      '/images/MAYRA/Tania/1BE5E875-06ED-49AB-84CD-D35C66C4E836.PNG',
+      '/images/MAYRA/Tania/IMG_5767.jpg',
+      '/images/MAYRA/Tania/IMG_5771.jpg',
+      '/images/MAYRA/Tania/IMG_5781.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  },
+  {
+    id: 'mayra-taniana',
+    name: 'Taniana',
+    description: 'Taniana este o simfonie a naturii imprimată pe material. Creația este asaltată vizual de o avalanșă de ramuri și flori brodate, care se cațără lin pe trup. Cu un spate generos decupat și un decolteu frontal plin de curaj, Taniana nu face compromisuri când vine vorba de lux și excentricitate.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/MAYRA/Taniana/IMG_5785.jpg',
+    images: [
+      '/images/MAYRA/Taniana/IMG_5785.jpg',
+      '/images/MAYRA/Taniana/9AD74CD5-0193-4055-9F4D-F6AEEA3289AF.PNG',
+      '/images/MAYRA/Taniana/IMG_5788.jpg',
+      '/images/MAYRA/Taniana/IMG_5796.jpg'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.MAYRA,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
   }
+  ,
+  {
+    id: 'beverly-anamara',
+    name: 'Anamara',
+    description: 'Anamara din colecția Beverly este un vis boem, așezat pe straturi infinit de fine de tull. Elementul ei definitoriu este fluiditatea—rochia pare mereu în mișcare, chiar și în repaus. Cu un decolteu generos, broderii tridimensionale rafinate și o fustă care plutește eteric, Anamara este dedicată spiritelor libere, aducând un suflu de eleganță organică și naturală într-un design ireproșabil couture.',
+    rentPrice: 4000,
+    price: 6000,
+    type: DressType.BUY,
+    imageUrl: '/images/BEVERLY/Anamara/1711CC8C-ED8F-40EF-83C7-60696BAAE99B.PNG',
+    images: [
+      '/images/BEVERLY/Anamara/03746EAE-477A-4A33-AE02-2AC1505D028A.jpg',
+      '/images/BEVERLY/Anamara/1711CC8C-ED8F-40EF-83C7-60696BAAE99B.PNG',
+      '/images/BEVERLY/Anamara/975368D7-5E16-45E5-B6B4-8664CA474BA6.PNG'
+    ],
+    currency: 'RON',
+    sizes: ['36', '38', '40'],
+    colors: ['Ivory'],
+    collection: Collection.BEVERLY,
+    details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
+  }
+
 ];

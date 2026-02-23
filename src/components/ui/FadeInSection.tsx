@@ -1,6 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const FadeInSection: React.FC<{ children?: React.ReactNode, delay?: number }> = ({ children, delay = 0 }) => {
+interface FadeInSectionProps {
+    children: React.ReactNode;
+    delay?: number;
+    className?: string;
+}
+
+const FadeInSection: React.FC<FadeInSectionProps> = ({ children, delay = 0, className = '' }) => {
     const [isVisible, setVisible] = useState(false);
     const domRef = useRef<HTMLDivElement>(null);
 
@@ -11,7 +17,7 @@ const FadeInSection: React.FC<{ children?: React.ReactNode, delay?: number }> = 
                     setVisible(true);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0, rootMargin: '50px' });
 
         const currentRef = domRef.current;
         if (currentRef) observer.observe(currentRef);
@@ -22,10 +28,10 @@ const FadeInSection: React.FC<{ children?: React.ReactNode, delay?: number }> = 
 
     return (
         <div
-            ref={domRef}
-            className={`transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                }`}
+            className={`transition-all duration-[2s] ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                } ${className}`}
             style={{ transitionDelay: `${delay}ms` }}
+            ref={domRef}
         >
             {children}
         </div>

@@ -1,12 +1,6 @@
 import React from 'react';
 import { Dress } from '../types';
-import Hero from '../components/sections/Hero';
 import CollectionGrid from '../components/sections/CollectionGrid';
-import AtelierSection from '../components/sections/AtelierSection';
-import InnovationSection from '../components/sections/InnovationSection';
-import HistorySection from '../components/sections/HistorySection';
-import WhereToBuySection from '../components/sections/WhereToBuySection';
-import PartnerSection from '../components/sections/PartnerSection';
 
 interface ImperialCollectionProps {
     dresses: Dress[];
@@ -15,22 +9,30 @@ interface ImperialCollectionProps {
 
 export default function ImperialCollection({ dresses, onOpenDetails }: ImperialCollectionProps) {
     return (
-        <>
-            <main>
-                <Hero />
-                <CollectionGrid
-                    dresses={dresses}
-                    onOpenDetails={onOpenDetails}
-                    title="Colecția Imperial"
-                    subtitle="Eleganță Regală"
+        <div className="bg-[#FAF8F5] min-h-screen pb-20">
+            {/* Cinematic Editorial Header */}
+            <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />
+                <img
+                    src="/images/Imperial/Queen/IMG_5571.jpg"
+                    alt="Colecția Imperial"
+                    className="absolute inset-0 w-full h-full object-cover object-top animate-fadeInUp-slow"
                 />
-            </main>
 
-            <AtelierSection />
-            <InnovationSection />
-            <HistorySection />
-            <WhereToBuySection />
-            <PartnerSection />
-        </>
+                <div className="relative z-20 text-center px-6 mt-20 animate-fadeInUp-slow" style={{ animationDelay: '0.2s' }}>
+                    <span className="block text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-bold text-white/80 mb-6 drop-shadow-md">Eleganță Regală</span>
+                    <h1 className="font-serif text-6xl md:text-8xl lg:text-[9rem] text-white italic mb-6 leading-[0.85] drop-shadow-lg">
+                        Imperial
+                    </h1>
+                    <p className="font-light text-white/90 text-base md:text-lg leading-[2] max-w-xl mx-auto drop-shadow-md">
+                        Rafinament absolut. Rochii de mireasă create cu pasiune pentru momentele care definesc o viață.
+                    </p>
+                </div>
+            </div>
+
+            <div className="max-w-[1400px] mx-auto mt-20">
+                <CollectionGrid dresses={dresses} onOpenDetails={onOpenDetails} bgColor="transparent" />
+            </div>
+        </div>
     );
 }
