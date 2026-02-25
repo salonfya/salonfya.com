@@ -1,9 +1,5 @@
 import { put } from '@vercel/blob';
 
-export const config = {
-    runtime: 'edge', // Using Vercel Edge Runtime for faster uploads
-};
-
 export default async function handler(req: Request) {
     if (req.method !== 'POST') {
         return new Response('Method Not Allowed', { status: 405 });
@@ -13,8 +9,8 @@ export default async function handler(req: Request) {
     const filename = searchParams.get('filename') || 'untitled';
 
     try {
-        // req.body is a ReadableStream which put() can accept directly in Edge runtime
-        const blob = await put(filename, req.body!, {
+        const bodyContent = await req.arrayBuffer(); // Node environment fallback
+        const blob = await put(filename, bodyContent, {
             access: 'public',
             token: process.env.BLOB_READ_WRITE_TOKEN,
         });
