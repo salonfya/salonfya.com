@@ -11,7 +11,6 @@ import CustomCursor from './components/ui/CustomCursor';
 // Feature Components
 import WardrobeModal from './components/features/WardrobeModal';
 import TryOnModal from './components/features/TryOnModal';
-import VideoModal from './components/features/VideoModal';
 import ImageZoomModal from './components/features/ImageZoomModal';
 import AppointmentModal from './components/features/AppointmentModal';
 
@@ -24,6 +23,7 @@ import FloatingBar from './components/ui/FloatingBar';
 import ScrollProgress from './components/ui/ScrollProgress';
 import PageTransition from './components/layout/PageTransition';
 import Preloader from './components/layout/Preloader';
+import Admin from './pages/Admin';
 
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Homepage from './pages/Homepage';
@@ -37,14 +37,14 @@ import DespreNoi from './pages/DespreNoi';
 
 export default function App() {
   const [selectedDress, setSelectedDress] = useState<Dress | null>(null);
-  const [modalType, setModalType] = useState<'details' | 'tryon' | 'video' | 'appointment' | 'wardrobe' | null>(null);
+  const [modalType, setModalType] = useState<'details' | 'tryon' | 'appointment' | 'wardrobe' | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
 
   const [wardrobe, setWardrobe] = useState<WardrobeItem[]>([]);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
 
-  const [introFinished, setIntroFinished] = useState(false);
+  const [introFinished, setIntroFinished] = useState(true);
   const [isPreloading, setIsPreloading] = useState(true);
 
   // Wardrobe Logic
@@ -95,7 +95,7 @@ export default function App() {
 
   const isInWardrobe = (id: string) => wardrobe.some(item => item.dressId === id);
 
-  const [bgColor, setBgColor] = useState('#FAFAFA');
+  const [bgColor, setBgColor] = useState('#EBE7E0');
 
   const location = useLocation();
 
@@ -104,7 +104,7 @@ export default function App() {
       // Only apply dark background effect on Homepage
       const isHomepage = location.pathname === '/';
       if (!isHomepage) {
-        setBgColor('#FAFAFA');
+        setBgColor('#EBE7E0');
         return;
       }
 
@@ -115,7 +115,7 @@ export default function App() {
 
       if (scrollProgress > 0.6) {
         const factor = Math.min((scrollProgress - 0.6) / 0.2, 1);
-        const startRGB = { r: 250, g: 250, b: 250 };
+        const startRGB = { r: 235, g: 231, b: 224 }; // RGB for #EBE7E0
         const endRGB = { r: 10, g: 10, b: 10 };
 
         const r = Math.round(startRGB.r + (endRGB.r - startRGB.r) * factor);
@@ -124,7 +124,7 @@ export default function App() {
 
         setBgColor(`rgb(${r}, ${g}, ${b})`);
       } else {
-        setBgColor('#FAFAFA');
+        setBgColor('#EBE7E0');
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -202,6 +202,7 @@ export default function App() {
               <Route path="/evora" element={<EvoraCollection dresses={evoraDresses} onOpenDetails={openDetails} />} />
               <Route path="/elise" element={<EliseCollection dresses={eliseDresses} onOpenDetails={openDetails} />} />
               <Route path="/despre-noi" element={<DespreNoi />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </PageTransition>
 
@@ -349,14 +350,10 @@ export default function App() {
                       {isInWardrobe(selectedDress.id) ? "În Garderobă" : "Adaugă la Wishlist"}
                     </Button>
 
-                    <div className="grid grid-cols-2 gap-4 mt-6">
-                      <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
+                    <div className="flex justify-center mt-6">
+                      <div className="p-4 w-full border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
                         <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">✧</span>
                         <span className="text-[10px] uppercase tracking-widest font-bold">Probă AI</span>
-                      </div>
-                      <div className="p-4 border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('video')}>
-                        <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">◉</span>
-                        <span className="text-[10px] uppercase tracking-widest font-bold">Video 360</span>
                       </div>
                     </div>
                   </div>
@@ -378,11 +375,6 @@ export default function App() {
                 <TryOnModal
                   dress={selectedDress}
                   isOpen={modalType === 'tryon'}
-                  onClose={() => setModalType('details')}
-                />
-                <VideoModal
-                  dress={selectedDress}
-                  isOpen={modalType === 'video'}
                   onClose={() => setModalType('details')}
                 />
               </>

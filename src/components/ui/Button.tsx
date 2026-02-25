@@ -33,7 +33,7 @@ const Button = ({ children, onClick, variant = 'primary', className = '', disabl
             onClick={onClick}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className={`${baseStyle} ${variants[variant]} ${className}`}
+            className={`${baseStyle} ${variants[variant]} ${className} active-scale`}
             disabled={disabled}
             style={{
                 transform: `translate(${position.x}px, ${position.y}px)`,

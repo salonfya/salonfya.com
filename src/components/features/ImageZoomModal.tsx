@@ -23,7 +23,7 @@ const ImageZoomModal = ({ isOpen, onClose, imageUrl }: { isOpen: boolean, onClos
 
     return (
         <div
-            className="fixed inset-0 z-[150] bg-[#FAFAFA] flex items-center justify-center p-0 cursor-zoom-out animate-fadeIn"
+            className="fixed inset-0 z-[150] bg-[#EBE7E0] flex items-center justify-center p-0 cursor-zoom-out animate-fadeIn"
             onClick={onClose}
         >
             <div

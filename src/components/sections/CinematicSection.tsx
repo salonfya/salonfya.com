@@ -37,7 +37,7 @@ const CinematicSection = () => {
                 ) : (
                     <iframe
                         className="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/dtbuUKJXAYc?autoplay=1&controls=1&rel=0"
+                        src="https://www.youtube.com/embed/dtbuUKJXAYc?autoplay=1&controls=1&rel=0&playsinline=1"
                         title="Fya Cinematic"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -48,11 +48,11 @@ const CinematicSection = () => {
                 {/* Overlay Content */}
                 {!playing && (
                     <div className={`absolute inset-0 flex flex-col items-center justify-center z-10 transition-all duration-[2s] ease-luxury ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-                        <span className="text-[10px] uppercase tracking-[0.35em] font-bold text-white/50 mb-6">Experiēnța</span>
-                        <h2 className="font-serif text-4xl md:text-6xl lg:text-[5.5rem] italic text-white text-center mb-6 leading-[1.05] tracking-tight">
+                        <span className="text-[11px] md:text-[12px] uppercase tracking-[0.35em] font-bold text-white/50 mb-6">Experiēnța</span>
+                        <h2 className="font-serif text-5xl md:text-6xl lg:text-[5.5rem] italic text-white text-center mb-6 px-4 md:px-0 leading-[1.05] tracking-tight">
                             Atelier Fya
                         </h2>
-                        <p className="text-white/70 font-light text-base md:text-lg max-w-lg text-center leading-[1.8] mb-12 font-serif italic">
+                        <p className="text-white/70 font-light text-base md:text-lg max-w-lg text-center leading-[1.8] px-6 md:px-0 mb-12 font-serif italic">
                             O privire în universul nostru. Unde timpul încetinește, iar pasiunea, arta și lumina devin a doua piele.
                         </p>
 

@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lato:wght@300;400;700&family=Alex+Brush&display=swap');
 
 :root {
   --color-text: #212121;
   --color-secondary: #959595;
-  --color-bg-primary: #FAFAFA;
+  --color-bg-primary: #EBE7E0;
   --color-bg-secondary: #F3F3F3;
   --color-accent: #605F5F;
   --color-accent-light: #AFA79D;
@@ -208,8 +208,51 @@ h5 {
     line-height: 0.9;
   }
 }
+
 @media (pointer: fine) {
-  body, a, button, input, select, textarea {
+
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea {
     cursor: none !important;
   }
+}
+
+/* --- Mobile App-Like Enhancements --- */
+
+/* Prevent pull-to-refresh and bounce on mobile */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Safe area insets for notched phones */
+  .safe-mb {
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-pb {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
+
+/* Smooth Touch Feedback (Tactile buttons) */
+.active-scale {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+@media (pointer: coarse) {
+  .active-scale:active {
+    transform: scale(0.95) !important;
+  }
+}
+
+/* Global Black and White Filter for all media */
+video,
+iframe {
+  filter: grayscale(100%) !important;
 }

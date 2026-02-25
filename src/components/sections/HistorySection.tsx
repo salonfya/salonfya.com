@@ -57,7 +57,7 @@ const HistorySection = () => {
             <div className="max-w-4xl mx-auto px-6 mb-40">
                 <ScrollTextReveal
                     text="Fya Atelier nu este doar o semnătură, ci un manifest pentru eleganța nealterată de timp. O rebeliune tăcută împotriva zgomotului cotidian. Aici, abandonăm graba. În fiecare cusătură inserăm o poveste despre devotament artizanal și tăcerea materialelor pure."
-                    className="font-serif text-3xl md:text-5xl leading-relaxed text-center text-[#E4E1DE]"
+                    className="font-serif text-3xl md:text-5xl leading-relaxed text-center text-[#E4E1DE] md:text-[#E4E1DE]"
                 />
             </div>
             <div className="max-w-[1600px] mx-auto px-6 space-y-32 mb-40">
@@ -69,7 +69,7 @@ const HistorySection = () => {
                     </div>
                     <div className="md:col-span-4 md:col-start-8">
                         <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#E4E1DE] mb-6">01. Măiestrie & Timp</h3>
-                        <p className="font-light text-[#959595] text-lg leading-[2] editorial-dropcap">
+                        <p className="font-light text-[#E4E1DE] md:text-[#959595] text-lg leading-[2] editorial-dropcap">
                             Refuzăm ritmul impus de tendințele secunde. Fiecare creație care ne poartă eticheta este sculptată manual pe de manechin, un act deliberat de răbdare care transformă mătasea brută într-o armură a feminității, perfect acordată siluetei tale.
                         </p>
                     </div>
@@ -77,7 +77,7 @@ const HistorySection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
                     <div className="md:col-span-4 md:col-start-2 order-2 md:order-1">
                         <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-[#E4E1DE] mb-6">02. Materialitate Pură</h3>
-                        <p className="font-light text-[#959595] text-lg leading-[2]">
+                        <p className="font-light text-[#E4E1DE] md:text-[#959595] text-lg leading-[2]">
                             Mătasea, dantela prețioasă și o selecție obsesivă decurată de materiale organice sunt singurele noastre instrumente. Restul este viziune absolută și refuzul oricărui compromis atunci când vine vorba de calitatea tactilă a fiecărei rochii.
                         </p>
                     </div>
@@ -89,10 +89,16 @@ const HistorySection = () => {
                 </div>
             </div>
             <div className="relative w-full h-[80vh] overflow-hidden mt-20">
-                <video className="w-full h-full object-cover opacity-70" autoPlay loop muted playsInline>
-                    <source src="/images/CINEMATIC.mp4" type="video/mp4" />
-                </video>
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                <iframe
+                    className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-h-screen min-w-full -translate-x-1/2 -translate-y-1/2 object-cover scale-[1.35] md:scale-110 opacity-70"
+                    src="https://www.youtube.com/embed/dtbuUKJXAYc?autoplay=1&mute=1&playsinline=1&controls=0&loop=1&playlist=dtbuUKJXAYc&start=2&end=70&showinfo=0&modestbranding=1"
+                    title="Fya Cinematic"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ pointerEvents: 'none' }}
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/30 pointer-events-none">
                     <h2 className="font-serif text-[12vw] md:text-[8vw] italic text-white mix-blend-overlay tracking-tight drop-shadow-2xl">Atelier Fya</h2>
                 </div>
             </div>

@@ -36,11 +36,11 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
     return (
         <>
             {/* Main Nav Bar */}
-            <nav className={`fixed top-0 w-full z-50 px-6 lg:px-12 flex justify-between items-center transition-all duration-700 ${scrolled ? 'bg-white/95 backdrop-blur-lg border-b border-[#E4E1DE]/50 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
+            <nav className={`fixed top-0 w-full z-50 px-6 lg:px-12 flex justify-between items-center transition-all duration-700 ${scrolled ? 'bg-[#EBE7E0]/95 backdrop-blur-lg border-b border-[#E4E1DE]/50 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
                 {/* Menu Button - Left */}
                 <div className="w-1/3 flex items-center gap-4">
                     <button
-                        className="flex flex-col items-center justify-center w-8 h-8 gap-[5px] group z-[60]"
+                        className="flex flex-col items-center justify-center w-8 h-8 gap-[5px] group z-[60] active-scale"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Meniu"
                     >
@@ -58,7 +58,7 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
 
                 {/* Logo - Center */}
                 <div className="w-1/3 text-center z-[60]">
-                    <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className="font-serif text-3xl italic tracking-wide cursor-pointer text-[#212121]">
+                    <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className="font-serif text-3xl italic tracking-wide cursor-pointer text-[#212121] active-scale inline-block">
                         Fya
                     </Link>
                 </div>
@@ -66,7 +66,7 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
                 {/* Right side - Wardrobe */}
                 <div className="w-1/3 flex justify-end items-center gap-4 z-[60]">
                     <button
-                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#212121] hover:text-[#605F5F] transition-colors"
+                        className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#212121] hover:text-[#605F5F] transition-colors active-scale"
                         onClick={() => { setMobileMenuOpen(false); onOpenWardrobe(); }}
                     >
                         <span>♡</span> <span className="hidden lg:inline">Garderobă</span> ({wardrobeCount})
@@ -75,10 +75,10 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
             </nav>
 
             {/* Split-Screen Menu Overlay */}
-            <div className={`fixed inset-0 z-40 bg-white transition-opacity duration-700 ease-in-out flex flex-col lg:flex-row ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`fixed inset-0 z-40 bg-[#EBE7E0] transition-opacity duration-700 ease-in-out flex flex-col lg:flex-row ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
 
                 {/* Left side: Navigation Links */}
-                <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start lg:pl-32 xl:pl-48 gap-6 bg-white pt-20 lg:pt-0">
+                <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center lg:items-start lg:pl-32 xl:pl-48 gap-5 md:gap-6 bg-[#EBE7E0] pt-24 lg:pt-0 overflow-y-auto pb-10 lg:pb-0">
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-[#959595] mb-4">Colecții</span>
                     {collections.map((c, i) => (
                         <Link

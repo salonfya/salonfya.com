@@ -4,15 +4,13 @@ import FadeInSection from '../ui/FadeInSection';
 
 const WhereToBuySection = () => {
     const locations = [
-        { city: "București", address: "Calea Victoriei 128", phone: "+40 722 000 001" },
-        { city: "Oradea", address: "Str. Republicii 12", phone: "+40 722 000 002" },
-        { city: "Cluj-Napoca", address: "Str. Eroilor 5", phone: "+40 722 000 003" }
+        { city: "Oradea", address: "Str. Republicii 12", phone: "+40 700 000 000" },
     ];
 
     return (
         <div className="py-[120px] px-6 md:px-12 max-w-[1800px] mx-auto where-to-buy">
             <SectionTitle title="Descoperă Creațiile Noi" subtitle="Destinații" centered />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
+            <div className="flex justify-center mt-16 max-w-5xl mx-auto">
                 {locations.map((loc, idx) => (
                     <FadeInSection key={idx} delay={idx * 200}>
                         <div className="text-center p-10 md:p-14 border border-[#F3F3F3] hover:border-[#212121] transition-colors duration-[1.5s] group bg-white">

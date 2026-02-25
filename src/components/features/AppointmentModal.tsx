@@ -30,7 +30,7 @@ const AppointmentModal = ({ dress, isOpen, onClose, location }: { dress: Dress, 
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} title="Serviciu Concierge">
-            <div className="w-full h-full min-h-[600px] flex flex-col md:flex-row relative bg-white">
+            <div className="w-full h-full min-h-[600px] flex flex-col md:flex-row relative bg-[#EBE7E0]">
                 {/* Left Side: Form Area */}
                 <div className="w-full md:w-1/2 p-12 lg:p-24 flex flex-col justify-center relative z-10 overflow-hidden">
 
@@ -41,7 +41,7 @@ const AppointmentModal = ({ dress, isOpen, onClose, location }: { dress: Dress, 
                     </div>
 
                     {/* Step 1: Identification */}
-                    <div className={`transition-all duration-700 absolute inset-0 p-8 md:p-12 lg:p-24 flex flex-col justify-center bg-white ${step === 1 ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-10 pointer-events-none'}`}>
+                    <div className={`transition-all duration-700 absolute inset-0 p-8 md:p-12 lg:p-24 flex flex-col justify-center bg-[#EBE7E0] ${step === 1 ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-10 pointer-events-none'}`}>
                         <h3 className="font-serif italic text-4xl lg:text-5xl text-[#212121] mb-12">Cu cine avem plăcerea?</h3>
 
                         <div className="space-y-12">
@@ -80,7 +80,7 @@ const AppointmentModal = ({ dress, isOpen, onClose, location }: { dress: Dress, 
                     </div>
 
                     {/* Step 2: Date & Time */}
-                    <div className={`transition-all duration-700 absolute inset-0 p-8 md:p-12 lg:p-24 flex flex-col justify-center bg-white ${step === 2 ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-10 pointer-events-none'}`}>
+                    <div className={`transition-all duration-700 absolute inset-0 p-8 md:p-12 lg:p-24 flex flex-col justify-center bg-[#EBE7E0] ${step === 2 ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 translate-x-10 pointer-events-none'}`}>
                         <button onClick={handlePrev} className="absolute top-8 left-8 md:top-12 md:left-12 lg:top-24 lg:left-24 text-[10px] uppercase tracking-widest font-bold text-[#959595] hover:text-[#212121] transition-colors">← Înapoi</button>
 
                         <h3 className="font-serif italic text-4xl lg:text-5xl text-[#212121] mb-12">Când doriți să ne vizitați?</h3>

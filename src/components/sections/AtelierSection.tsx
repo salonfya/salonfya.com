@@ -8,7 +8,7 @@ const AtelierSection = () => (
             <div className="order-2 lg:order-1 space-y-16">
                 <FadeInSection>
                     <SectionTitle title="Atelierul de Creație" subtitle="Meșteșug & Inovație" />
-                    <p className="text-[#959595] font-light leading-[2] text-base md:text-lg max-w-xl mt-12 editorial-dropcap">
+                    <p className="text-[#E4E1DE] md:text-[#959595] font-light leading-[2] text-base md:text-lg max-w-xl mt-12 editorial-dropcap">
                         În atelierul Fya, am renunțat la grabă. Fiecare rochie este o pânză pe care o pictăm cu sute de ore de muncă manuală, îmbinând tradiția artizanală cu o precizie aproape arhitecturală.
                         Avem o singură credință: piesele de colecție transcend tendințele sezoniere.
                     </p>

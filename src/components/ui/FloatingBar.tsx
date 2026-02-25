@@ -24,10 +24,10 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
     return (
         <>
             {/* Mobile-only floating bottom bar */}
-            <div className={`lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${visible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-                <div className="bg-white/90 backdrop-blur-xl rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-[#E4E1DE]/40 px-6 py-3 flex items-center gap-8">
+            <div className={`lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 safe-mb ${visible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+                <div className="bg-[#EBE7E0]/90 backdrop-blur-xl rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] border border-[#E4E1DE]/40 px-6 py-3 flex items-center gap-8">
                     {/* Menu */}
-                    <button onClick={() => setMobileMenuOpen(true)} className="flex flex-col items-center gap-1 group">
+                    <button onClick={() => setMobileMenuOpen(true)} className="flex flex-col items-center gap-1 group active-scale">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="1.5">
                             <line x1="4" y1="7" x2="20" y2="7" />
                             <line x1="4" y1="12" x2="20" y2="12" />
@@ -37,7 +37,7 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
                     </button>
 
                     {/* Home */}
-                    <Link to="/" className="flex flex-col items-center gap-1 group">
+                    <Link to="/" className="flex flex-col items-center gap-1 group active-scale">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="1.5">
                             <path d="M12 3L2 12h3v8h5v-5h4v5h5v-8h3L12 3z" />
                         </svg>
@@ -45,7 +45,7 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
                     </Link>
 
                     {/* Search/Explore */}
-                    <Link to="/despre-noi" className="flex flex-col items-center gap-1 group">
+                    <Link to="/despre-noi" className="flex flex-col items-center gap-1 group active-scale">
                         {/* Updated Info icon */}
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="1.5">
                             <circle cx="12" cy="12" r="10" />
@@ -56,7 +56,7 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
                     </Link>
 
                     {/* Wardrobe */}
-                    <button onClick={onOpenWardrobe} className="flex flex-col items-center gap-1 group relative">
+                    <button onClick={onOpenWardrobe} className="flex flex-col items-center gap-1 group relative active-scale">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="1.5">
                             <path d="M4 7h16l-1.5 11H5.5L4 7z" />
                             <path d="M9 7V5a3 3 0 0 1 6 0v2" />
@@ -70,7 +70,7 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
             </div>
 
             {/* Full-screen mobile menu from floating bar */}
-            <div className={`lg:hidden fixed inset-0 z-[60] bg-white transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            <div className={`lg:hidden fixed inset-0 z-[60] bg-[#EBE7E0] transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
                 <div className="flex flex-col items-center justify-center h-full gap-5">
                     <button onClick={() => setMobileMenuOpen(false)} className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#212121" strokeWidth="1.5">

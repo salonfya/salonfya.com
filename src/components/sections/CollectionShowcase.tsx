@@ -87,7 +87,7 @@ const CollectionShowcase = () => {
                     <Link
                         key={col.path}
                         to={col.path}
-                        className={`group relative overflow-hidden transition-all duration-[2s] ease-luxury ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${i === 0 || i === 3 ? 'md:col-span-2 lg:col-span-2 aspect-[16/9]' : 'aspect-[3/4]'}`}
+                        className={`group relative overflow-hidden transition-all duration-[2s] ease-luxury ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'} ${i === 0 || i === 3 ? 'col-span-1 md:col-span-2 lg:col-span-2 aspect-[4/5] md:aspect-[16/9]' : 'col-span-1 aspect-[4/5] md:aspect-[3/4]'}`}
                         style={{ transitionDelay: `${200 + i * 150}ms` }}
                     >
                         <img

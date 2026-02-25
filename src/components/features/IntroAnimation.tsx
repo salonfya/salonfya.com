@@ -5,35 +5,61 @@ const IntroAnimation = ({ onComplete }: { onComplete: () => void }) => {
     const [phase, setPhase] = useState(0);
 
     useEffect(() => {
-        // Phases: 0 - initial, 1 - visible, 2 - fade out
-        const t1 = setTimeout(() => setPhase(1), 100);
-        const t2 = setTimeout(() => setPhase(2), 2500);
-        const t3 = setTimeout(() => {
+        // Phases: 
+        // 0 - Writing "Fya"
+        // 1 - Fade in subtext
+        // 2 - Fade out whole screen
+        const t0 = setTimeout(() => setPhase(1), 1800);
+        const t1 = setTimeout(() => setPhase(2), 3500);
+        const t2 = setTimeout(() => {
             setIsVisible(false);
             onComplete();
-        }, 3200);
+        }, 4500);
 
         return () => {
+            clearTimeout(t0);
             clearTimeout(t1);
             clearTimeout(t2);
-            clearTimeout(t3);
         };
     }, [onComplete]);
 
     if (!isVisible) return null;
 
     return (
-        <div className={`fixed inset-0 z-[200] bg-[#FAFAFA] flex items-center justify-center transition-opacity duration-1000 ${phase === 2 ? 'opacity-0' : 'opacity-100'}`}>
-            <div className="relative overflow-hidden">
-                <div className="flex flex-col items-center">
-                    <span className={`text-[10px] uppercase tracking-[0.5em] text-[#959595] mb-4 transition-all duration-1000 ${phase >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                        Bienvenue à
-                    </span>
-                    <h1 className={`font-serif text-5xl md:text-8xl text-[#212121] uppercase tracking-[0.3em] transition-all duration-[1.5s] ease-out ${phase >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-110'}`}>
-                        Fya Atelier
-                    </h1>
-                    <div className={`w-20 h-px bg-[#212121] mt-8 transition-all duration-1000 delay-500 ${phase >= 1 ? 'w-40 opacity-100' : 'w-0 opacity-0'}`}></div>
+        <div className={`fixed inset-0 z-[200] bg-[#EBE7E0] flex items-center justify-center transition-opacity duration-1000 ${phase === 2 ? 'opacity-0' : 'opacity-100'}`}>
+            <style>{`
+                .cursive-reveal {
+                    font-family: 'Alex Brush', cursive;
+                    font-size: clamp(6rem, 15vw, 12rem);
+                    color: #212121;
+                    position: relative;
+                    display: inline-block;
+                }
+                .cursive-reveal::after {
+                    content: '';
+                    position: absolute;
+                    top: -10%;
+                    right: 0;
+                    bottom: -10%;
+                    width: 100%;
+                    background-color: #EBE7E0;
+                    animation: revealText 2s ease-in-out forwards;
+                }
+                @keyframes revealText {
+                    0% { width: 100%; }
+                    100% { width: 0%; }
+                }
+            `}</style>
+
+            <div className="flex flex-col items-center">
+                {/* Handwritten Cursive "Fya" */}
+                <div className="cursive-reveal pr-4 pl-2 leading-none">
+                    Fya
                 </div>
+
+                <span className={`font-serif tracking-[0.2em] text-[#212121] uppercase text-[10px] md:text-xs transition-opacity duration-1000 mt-2 ${phase >= 1 ? 'opacity-100' : 'opacity-0'}`}>
+                    Fancy, Young & Admired
+                </span>
             </div>
         </div>
     );

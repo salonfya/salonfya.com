@@ -146,7 +146,7 @@ const CarmenFullPage = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
                     </div>
 
                     {/* Right: Model Image */}
-                    <div className="h-full bg-[#FAFAFA] flex items-center justify-center p-0 lg:p-0 overflow-hidden order-2 lg:order-2 relative group">
+                    <div className="h-full bg-[#EBE7E0] flex items-center justify-center p-0 lg:p-0 overflow-hidden order-2 lg:order-2 relative group">
                         <img
                             src="/images/carmen_model_front_v2.png"
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1.5s] ease-in-out"
@@ -159,7 +159,7 @@ const CarmenFullPage = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
                 </div>
 
                 {/* New Section: Full Gallery Restored */}
-                <div className="py-24 px-6 md:px-12 bg-white border-t border-[#FAFAFA]">
+                <div className="py-24 px-6 md:px-12 bg-white border-t border-[#EBE7E0]">
                     <div className="max-w-[1600px] mx-auto">
                         <div className="flex justify-between items-end mb-12">
                             <h3 className="font-serif text-3xl italic text-[#212121]">Galerie Completă</h3>

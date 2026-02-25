@@ -67,7 +67,7 @@ const WardrobeModal = ({
                                                         value={item.notes}
                                                         onChange={(e) => onUpdateItem(item.dressId, 'notes', e.target.value)}
                                                         placeholder="Adaugă detalii despre ce ți-a plăcut..."
-                                                        className="w-full p-3 bg-[#FAFAFA] border border-[#E4E1DE] focus:border-[#212121] outline-none text-sm font-light min-h-[80px] resize-none transition-colors"
+                                                        className="w-full p-3 bg-[#EBE7E0] border border-[#E4E1DE] focus:border-[#212121] outline-none text-sm font-light min-h-[80px] resize-none transition-colors"
                                                     />
                                                 </div>
                                                 <div className="space-y-2">

@@ -8,11 +8,13 @@ const TryOnModal = ({ dress, isOpen, onClose }: { dress: Dress, isOpen: boolean,
     const [userImage, setUserImage] = useState<string | null>(null);
     const [resultImage, setResultImage] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
+            setErrorMsg(null);
             const reader = new FileReader();
             reader.onloadend = () => setUserImage(reader.result as string);
             reader.readAsDataURL(file);
@@ -22,12 +24,13 @@ const TryOnModal = ({ dress, isOpen, onClose }: { dress: Dress, isOpen: boolean,
     const handleGenerate = async () => {
         if (!userImage) return;
         setLoading(true);
+        setErrorMsg(null);
         try {
             const result = await generateTryOn(userImage, dress.imageUrl, dress.description);
             setResultImage(result);
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            alert('A apărut o eroare. Vă rugăm să încercați o altă fotografie.');
+            setErrorMsg(error.message || 'A apărut o eroare. Vă rugăm să încercați o altă fotografie.');
         } finally {
             setLoading(false);
         }
@@ -37,14 +40,19 @@ const TryOnModal = ({ dress, isOpen, onClose }: { dress: Dress, isOpen: boolean,
         <Modal isOpen={isOpen} onClose={onClose} title="Probă Virtuală AI" fullScreen>
             <div className="grid grid-cols-1 md:grid-cols-2 h-full min-h-[85vh]">
                 {/* Left Side: Interaction */}
-                <div className="p-8 md:p-20 flex flex-col justify-center bg-[#FAFAFA] border-r border-[#E4E1DE]">
+                <div className="p-8 md:p-20 flex flex-col justify-center bg-[#EBE7E0] border-r border-[#E4E1DE]">
                     <div className="max-w-lg mx-auto w-full space-y-12">
                         <div className="space-y-6">
                             <h2 className="font-serif text-5xl italic text-[#212121]">Reflexia Ta</h2>
                             <p className="font-light text-[#959595] leading-relaxed">
-                                Tehnologia noastră AI personalizează rochia {dress.name} pe silueta ta.
-                                Pentru rezultate optime, folosește o fotografie clară, cu lumină naturală, în care corpul este vizibil în întregime.
+                                Tehnologia noastră AI se adaptează proporțiilor tale.
+                                Pentru un rezultat fotorealist, te rugăm să respecți câteva reguli simple:
                             </p>
+                            <ul className="text-sm font-light text-[#605F5F] list-disc pl-5 space-y-2">
+                                <li>Folosește o fotografie din față (sau ușor din unghi), din cap până-n picioare.</li>
+                                <li>Asigură-te că lumina este uniformă (evită umbrele puternice pe corp).</li>
+                                <li>O îmbrăcăminte strâmtă (de corp) va genera cele mai precise rezultate permițând AI-ului să croiască rochia corect.</li>
+                            </ul>
                         </div>
 
                         {!userImage ? (
@@ -65,9 +73,14 @@ const TryOnModal = ({ dress, isOpen, onClose }: { dress: Dress, isOpen: boolean,
                                     </button>
                                 </div>
                                 {!resultImage && (
-                                    <Button onClick={handleGenerate} disabled={loading} className="w-full" variant="primary">
-                                        {loading ? "Procesare AI..." : "Generează Proba"}
-                                    </Button>
+                                    <div className="space-y-4">
+                                        <Button onClick={handleGenerate} disabled={loading} className="w-full" variant="primary">
+                                            {loading ? "Procesare AI..." : "Generează Proba"}
+                                        </Button>
+                                        {errorMsg && (
+                                            <p className="text-red-500 text-sm text-center">{errorMsg}</p>
+                                        )}
+                                    </div>
                                 )}
                             </div>
                         )}
