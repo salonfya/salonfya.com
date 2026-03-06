@@ -82,7 +82,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     details: { fabric: 'Mătase naturală, dantelă', silhouette: 'Sirenă', neckline: 'Corset Illusion' }
   },
   {
-    id: 'elise-elise',
+    id: 'imperial-elise',
     name: 'Elise',
     description: 'Elise este o rochie de mireasă realizată din tafta perlată, cu o strălucire delicată și structură impecabilă, ce pune în valoare rafinamentul unei siluete clasice. Corsajul are un decolteu amplu, tip bardot, cu linii suprapuse ce conturează elegant zona umerilor și a bustului. Talia este bine definită, iar fusta amplă, cu volum bogat și trenă fluidă, cade armonios în pliuri ample, oferind un aer regal și sofisticat. Spatele rochiei este accentuat de un decolteu în V și de o fundă decorativă din același material, cu panglici lungi ce se prelungesc grațios peste trenă, adăugând un detaliu romantic și spectaculos. Aceasta conferă rochiei un aspect luxos, păstrând în același timp o eleganță atemporală. O rochie ideală pentru mireasa care își dorește un look clasic, nobil și memorabil.',
     rentPrice: 3900,
@@ -94,7 +94,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['50'],
     colors: ['Ivory'],
-    collection: Collection.ELISE,
+    collection: Collection.IMPERIAL,
     details: { fabric: 'Tafta perlată', silhouette: 'Prințesă / A-Line', neckline: 'Bardot / Suprapus' }
   },
   {
@@ -178,7 +178,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     details: { fabric: 'Tafta albă', silhouette: 'A-Line / Amplă', neckline: 'V-Neck profund' }
   },
   {
-    id: 'evora-evora',
+    id: 'imperial-evora',
     name: 'Evora',
     description: 'Pășește în propria ta poveste cu această rochie de mireasă, care este o creație diafană, o simfonie a texturilor fine și a strălucirii discrete. Concepută pentru mireasa care visează la o eleganță atemporală, dar care își dorește să strălucească la propriu, această rochie îmbină romantismul clasic al mânecilor lungi diafane cu senzualitatea modernă a unui corset bijuterie. Structura de bază este tip A-line, oferind volum fluid din multiple straturi de tul fin, iar trena fluidă adaugă dramatism regal. Corsetul are decolteu amplu în V și este bogat ornamentat cu broderii tridimensionale, perle, cristale și paiete aplicate ce curg în cascadă spre talie, oferind un aer de lux și aristocrație.',
     rentPrice: 4400,
@@ -190,7 +190,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['36', '38'],
     colors: ['Ivory / Nude subtil'],
-    collection: Collection.EVORA,
+    collection: Collection.IMPERIAL,
     details: { fabric: 'Tul fin, broderii 3D, perle și cristale', silhouette: 'Prințesă / A-Line', neckline: 'V-Neck cu aspect Illusion' }
   },
   {

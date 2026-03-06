@@ -13,10 +13,13 @@ export default function ImperialCollection({ dresses, onOpenDetails }: ImperialC
             {/* Cinematic Editorial Header */}
             <div className="relative h-[70vh] w-full overflow-hidden flex items-center justify-center">
                 <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />
-                <img
-                    src="/images/Imperial/Queen/IMG_5571.jpg"
-                    alt="Colecția Imperial"
-                    className="absolute inset-0 w-full h-full object-cover object-top animate-fadeInUp-slow"
+                <video
+                    src="/images/Imperial/Generare_Video_Rochii_Fashion.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover object-center animate-fadeInUp-slow grayscale contrast-125 brightness-90"
                 />
 
                 <div className="relative z-20 text-center px-6 mt-20 animate-fadeInUp-slow" style={{ animationDelay: '0.2s' }}>

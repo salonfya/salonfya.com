@@ -8,8 +8,12 @@ export default function CustomCursor() {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
-        // Enforce custom cursor only on devices with fine pointers (non-touch)
-        if (window.matchMedia("(pointer: fine)").matches) {
+        // Enforce custom cursor only on devices with fine pointers and no touch support
+        const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+        const hasTouch = window.matchMedia("(any-pointer: coarse)").matches;
+
+        // If it has fine pointer and DOES NOT have touch (or is explicitly desktop)
+        if (hasFinePointer && !hasTouch) {
             setIsMobile(false);
         }
 
@@ -40,8 +44,18 @@ export default function CustomCursor() {
             }
         };
 
+        const handleScroll = () => {
+            setIsHovering(false);
+            setCursorText('');
+        };
+
         window.addEventListener('mousemove', moveCursor);
-        return () => window.removeEventListener('mousemove', moveCursor);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener('mousemove', moveCursor);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     if (isMobile) return null;

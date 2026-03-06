@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const collections = [
-    { path: '/imperial', label: 'Imperial', image: '/images/Imperial/Queen/IMG_5571.jpg' },
+    { path: '/imperial', label: 'Imperial', image: '/images/Imperial/Aurelia/IMG_5352.jpg' },
     { path: '/anna', label: 'Anna', image: '/images/ANNA/Just Anna/IMG_5889.jpg' },
     { path: '/mayra', label: 'Mayra', image: '/images/MAYRA/Snow/IMG_5744.jpg' },
     { path: '/beverly', label: 'Beverly', image: '/images/BEVERLY/Anamara/03746EAE-477A-4A33-AE02-2AC1505D028A.jpg' },
-    { path: '/evora', label: 'Evora', image: '/images/Evora/IMG_5580.jpg' },
-    { path: '/elise', label: 'Elise', image: '/images/Elise/IMG_5405.jpg' },
 ];
 
 const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOpen }: any) => {
@@ -38,7 +36,7 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
             {/* Main Nav Bar */}
             <nav className={`fixed top-0 w-full z-50 px-6 lg:px-12 flex justify-between items-center transition-all duration-700 ${scrolled ? 'bg-[#EBE7E0]/95 backdrop-blur-lg border-b border-[#E4E1DE]/50 py-3 shadow-sm' : 'bg-transparent py-5'}`}>
                 {/* Menu Button - Left */}
-                <div className="w-1/3 flex items-center gap-4">
+                <div className="flex-1 flex items-center gap-4">
                     <button
                         className="flex flex-col items-center justify-center w-8 h-8 gap-[5px] group z-[60] active-scale"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -57,14 +55,14 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
                 </div>
 
                 {/* Logo - Center */}
-                <div className="w-1/3 text-center z-[60]">
+                <div className="w-auto flex-shrink-0 text-center z-[60] px-4">
                     <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className="font-serif text-3xl italic tracking-wide cursor-pointer text-[#212121] active-scale inline-block">
                         Fya
                     </Link>
                 </div>
 
                 {/* Right side - Wardrobe */}
-                <div className="w-1/3 flex justify-end items-center gap-4 z-[60]">
+                <div className="flex-1 flex justify-end items-center gap-4 z-[60]">
                     <button
                         className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#212121] hover:text-[#605F5F] transition-colors active-scale"
                         onClick={() => { setMobileMenuOpen(false); onOpenWardrobe(); }}

@@ -31,8 +31,6 @@ import ImperialCollection from './pages/ImperialCollection';
 import AnnaCollection from './pages/AnnaCollection';
 import MayraCollection from './pages/MayraCollection';
 import BeverlyCollection from './pages/BeverlyCollection';
-import EvoraCollection from './pages/EvoraCollection';
-import EliseCollection from './pages/EliseCollection';
 import DespreNoi from './pages/DespreNoi';
 
 export default function App() {
@@ -43,6 +41,7 @@ export default function App() {
 
   const [wardrobe, setWardrobe] = useState<WardrobeItem[]>([]);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const [introFinished, setIntroFinished] = useState(true);
   const [isPreloading, setIsPreloading] = useState(true);
@@ -54,6 +53,8 @@ export default function App() {
       if (exists) {
         return prev.filter(item => item.dressId !== dress.id);
       } else {
+        setToastMessage(`Rochia ${dress.name} a fost adăugată în Wishlist ♡`);
+        setTimeout(() => setToastMessage(null), 3000);
         return [...prev, { dressId: dress.id, notes: '', preferredStyle: '', addedAt: new Date() }];
       }
     });
@@ -90,8 +91,6 @@ export default function App() {
   const annaDresses = DRESSES.filter(d => d.collection === Collection.ANNA);
   const mayraDresses = DRESSES.filter(d => d.collection === Collection.MAYRA);
   const beverlyDresses = DRESSES.filter(d => d.collection === Collection.BEVERLY);
-  const evoraDresses = DRESSES.filter(d => d.collection === Collection.EVORA);
-  const eliseDresses = DRESSES.filter(d => d.collection === Collection.ELISE);
 
   const isInWardrobe = (id: string) => wardrobe.some(item => item.dressId === id);
 
@@ -199,8 +198,6 @@ export default function App() {
               <Route path="/anna" element={<AnnaCollection dresses={annaDresses} onOpenDetails={openDetails} />} />
               <Route path="/mayra" element={<MayraCollection dresses={mayraDresses} onOpenDetails={openDetails} />} />
               <Route path="/beverly" element={<BeverlyCollection dresses={beverlyDresses} onOpenDetails={openDetails} />} />
-              <Route path="/evora" element={<EvoraCollection dresses={evoraDresses} onOpenDetails={openDetails} />} />
-              <Route path="/elise" element={<EliseCollection dresses={eliseDresses} onOpenDetails={openDetails} />} />
               <Route path="/despre-noi" element={<DespreNoi />} />
               <Route path="/admin" element={<Admin />} />
             </Routes>
@@ -338,20 +335,22 @@ export default function App() {
                   </div>
 
                   <div className="mt-auto space-y-4 pb-10">
-                    <Button onClick={() => setModalType('appointment')} variant="primary" className="w-full">
-                      Programează Vizită
-                    </Button>
-                    <Button
-                      onClick={() => selectedDress && toggleWardrobe(selectedDress)}
-                      variant="secondary"
-                      className="w-full"
-                      icon={isInWardrobe(selectedDress.id) ? "♥" : "♡"}
-                    >
-                      {isInWardrobe(selectedDress.id) ? "În Garderobă" : "Adaugă la Wishlist"}
-                    </Button>
+                    <div className="flex flex-col gap-4">
+                      <Button onClick={() => setModalType('appointment')} variant="primary" className="w-full">
+                        Programează Vizită
+                      </Button>
+                      <Button
+                        onClick={() => selectedDress && toggleWardrobe(selectedDress)}
+                        variant="secondary"
+                        className="w-full"
+                        icon={isInWardrobe(selectedDress.id) ? "♥" : "♡"}
+                      >
+                        {isInWardrobe(selectedDress.id) ? "În Garderobă" : "Adaugă la Wishlist"}
+                      </Button>
+                    </div>
 
                     <div className="flex justify-center mt-6">
-                      <div className="p-4 w-full border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
+                      <div className="p-4 w-full md:w-auto border border-[#E4E1DE] text-center hover:border-[#212121] transition-colors cursor-pointer group" onClick={() => setModalType('tryon')}>
                         <span className="block text-2xl mb-2 group-hover:scale-110 transition-transform">✧</span>
                         <span className="text-[10px] uppercase tracking-widest font-bold">Probă AI</span>
                       </div>
@@ -385,6 +384,13 @@ export default function App() {
             onClose={() => setZoomImage(null)}
             imageUrl={zoomImage}
           />
+
+          {/* Toast Notification */}
+          <div className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 pointer-events-none ${toastMessage ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div className="bg-[#212121] text-white px-8 py-4 shadow-xl flex items-center gap-3">
+              <span className="text-sm font-light tracking-wide">{toastMessage}</span>
+            </div>
+          </div>
         </div>
       )}
     </>

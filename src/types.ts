@@ -45,6 +45,4 @@ export enum Collection {
   ANNA = 'Anna',
   MAYRA = 'Mayra',
   BEVERLY = 'Beverly',
-  EVORA = 'Evora',
-  ELISE = 'Elise',
 }

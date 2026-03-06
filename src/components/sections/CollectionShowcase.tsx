@@ -6,7 +6,7 @@ const collections = [
         path: '/imperial',
         name: 'Imperial',
         subtitle: 'Eleganță Regală',
-        image: '/images/Imperial/Queen/IMG_5571.jpg',
+        image: '/images/Imperial/Aurelia/IMG_5352.jpg',
         description: 'Rafinament absolut. O colecție pentru momente care definesc o viață.'
     },
     {
@@ -22,20 +22,6 @@ const collections = [
         subtitle: 'Romantism Eteric',
         image: '/images/MAYRA/Snow/IMG_5744.jpg',
         description: 'Detalii fine, design modern, siluetă clasică — dedicată mireselor pasionate.'
-    },
-    {
-        path: '/evora',
-        name: 'Evora',
-        subtitle: 'Sclipiri Eterice',
-        image: '/images/Evora/IMG_5580.jpg',
-        description: 'O simfonie de texturi fine și strălucire discretă, pentru mireasa care strălucește.'
-    },
-    {
-        path: '/elise',
-        name: 'Elise',
-        subtitle: 'Noblețe Clasică',
-        image: '/images/Elise/IMG_5405.jpg',
-        description: 'Tafta perlată și siluete clasice. Eleganță atemporală memorabilă.'
     },
     {
         path: '/beverly',
