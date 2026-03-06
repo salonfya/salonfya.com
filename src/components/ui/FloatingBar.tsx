@@ -85,8 +85,6 @@ const FloatingBar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileM
                         { path: '/anna', label: 'Anna' },
                         { path: '/mayra', label: 'Mayra' },
                         { path: '/beverly', label: 'Beverly' },
-                        { path: '/evora', label: 'Evora' },
-                        { path: '/elise', label: 'Elise' },
                     ].map(c => (
                         <Link key={c.path} to={c.path} onClick={() => setMobileMenuOpen(false)}
                             className={`font-serif text-3xl italic transition-colors ${location.pathname === c.path ? 'text-[#605F5F]' : 'text-[#212121] hover:text-[#605F5F]'}`}>
