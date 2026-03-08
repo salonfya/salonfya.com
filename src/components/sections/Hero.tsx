@@ -7,7 +7,7 @@ const Hero = () => {
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                 <iframe
                     className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-h-screen min-w-full -translate-x-1/2 -translate-y-1/2 object-cover scale-[1.35] md:scale-110"
-                    src="https://www.youtube.com/embed/dtbuUKJXAYc?autoplay=1&mute=1&playsinline=1&controls=0&loop=1&playlist=dtbuUKJXAYc&start=6&end=66&showinfo=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/dtbuUKJXAYc?autoplay=1&mute=1&playsinline=1&controls=0&loop=1&playlist=dtbuUKJXAYc&start=15&end=66&showinfo=0&modestbranding=1"
                     title="Fya Atelier"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -23,7 +23,7 @@ const Hero = () => {
                 <p className="text-[11px] md:text-[12px] uppercase tracking-[0.5em] font-bold text-white/40 mb-10 pt-4">Haute Couture · Oradea</p>
                 <div className="flex justify-center items-center gap-4 mb-10">
                     <span className="w-8 h-[1px] bg-white/30"></span>
-                    <p className="font-serif italic text-white/90 text-xl md:text-2xl tracking-[0.1em]">Fancy, Young, Admired</p>
+                    <p className="font-serif italic text-white/90 text-xl md:text-2xl tracking-[0.1em]">Fancy, Young, Admired (FYA)</p>
                     <span className="w-8 h-[1px] bg-white/30"></span>
                 </div>
                 <p className="font-light text-white/70 text-base md:text-xl leading-[1.8] max-w-lg mx-auto px-4 md:px-0 mb-14 font-serif italic">

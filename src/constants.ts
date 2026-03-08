@@ -178,7 +178,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     details: { fabric: 'Tafta albă', silhouette: 'A-Line / Amplă', neckline: 'V-Neck profund' }
   },
   {
-    id: 'imperial-evora',
+    id: 'beverly-evora',
     name: 'Evora',
     description: 'Pășește în propria ta poveste cu această rochie de mireasă, care este o creație diafană, o simfonie a texturilor fine și a strălucirii discrete. Concepută pentru mireasa care visează la o eleganță atemporală, dar care își dorește să strălucească la propriu, această rochie îmbină romantismul clasic al mânecilor lungi diafane cu senzualitatea modernă a unui corset bijuterie. Structura de bază este tip A-line, oferind volum fluid din multiple straturi de tul fin, iar trena fluidă adaugă dramatism regal. Corsetul are decolteu amplu în V și este bogat ornamentat cu broderii tridimensionale, perle, cristale și paiete aplicate ce curg în cascadă spre talie, oferind un aer de lux și aristocrație.',
     rentPrice: 4400,
@@ -190,7 +190,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['36', '38'],
     colors: ['Ivory / Nude subtil'],
-    collection: Collection.IMPERIAL,
+    collection: Collection.BEVERLY,
     details: { fabric: 'Tul fin, broderii 3D, perle și cristale', silhouette: 'Prințesă / A-Line', neckline: 'V-Neck cu aspect Illusion' }
   },
   {
@@ -622,7 +622,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
   }
   ,
   {
-    id: 'beverly-anamara',
+    id: 'imperial-anamara',
     name: 'Anamara',
     description: 'Anamara din colecția Beverly este un vis boem, așezat pe straturi infinit de fine de tull. Elementul ei definitoriu este fluiditatea—rochia pare mereu în mișcare, chiar și în repaus. Cu un decolteu generos, broderii tridimensionale rafinate și o fustă care plutește eteric, Anamara este dedicată spiritelor libere, aducând un suflu de eleganță organică și naturală într-un design ireproșabil couture.',
     rentPrice: 4000,
@@ -637,7 +637,7 @@ export const DRESSES: (Dress & { collection: Collection })[] = [
     currency: 'RON',
     sizes: ['36', '38', '40'],
     colors: ['Ivory'],
-    collection: Collection.BEVERLY,
+    collection: Collection.IMPERIAL,
     details: { fabric: 'Tull, dantelă 3D', silhouette: 'A-Line', neckline: 'Inimă' }
   }
 

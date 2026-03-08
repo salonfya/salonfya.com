@@ -57,7 +57,7 @@ const Navbar = ({ onOpenWardrobe, wardrobeCount, mobileMenuOpen, setMobileMenuOp
                 {/* Logo - Center */}
                 <div className="w-auto flex-shrink-0 text-center z-[60] px-4">
                     <Link to="/" onClick={() => { window.scrollTo(0, 0); setMobileMenuOpen(false); }} className="font-serif text-3xl italic tracking-wide cursor-pointer text-[#212121] active-scale inline-block">
-                        Fya
+                        FYA
                     </Link>
                 </div>
 

@@ -28,7 +28,7 @@ const Footer = () => (
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
                     {/* Logo & Tagline */}
                     <div className="md:col-span-4">
-                        <span className="font-serif text-5xl italic">Fya</span>
+                        <span className="font-serif text-5xl italic">FYA</span>
                         <p className="mt-4 text-sm font-light text-[#959595] leading-relaxed max-w-xs">
                             Haute couture din Oradea. Fiecare rochie este o operă de artă, creată cu pasiune și reverență pentru frumusețe.
                         </p>
